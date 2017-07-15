@@ -1,0 +1,238 @@
+// vim:ts=4:sw=4:et
+{
+    // workspace with 3 children
+    "border": "normal",
+    "floating": "auto_off",
+    "fullscreen_mode": 1,
+    "layout": "splith",
+    "percent": null,
+    "type": "workspace",
+    "nodes": [
+        {
+            // tabbed split container with 2 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "percent": 0.314225053078556,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1386,
+                       "width": 1139,
+                       "x": 15,
+                       "y": 59
+                    },
+                    "name": "Punt-West Hotel & Beachresort | Oasis Parcs - Chromium",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       // "class": "^Chromium$",
+                       // "instance": "^chromium$",
+                       // "title": "^Punt\\-West\\ Hotel\\ \\&\\ Beachresort\\ \\|\\ Oasis\\ Parcs\\ \\-\\ Chromium$",
+                       // "transient_for": "^$",
+                       // "window_role": "^browser$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1386,
+                       "width": 1139,
+                       "x": 5,
+                       "y": 49
+                    },
+                    "name": "Chat - Chromium",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       // "class": "^Chromium$",
+                       // "instance": "^chromium$",
+                       // "title": "^Chat\\ \\-\\ Chromium$",
+                       // "transient_for": "^$",
+                       // "window_role": "^browser$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 700,
+               "width": 1265,
+               "x": 1026,
+               "y": 735
+            },
+            "name": "nginx.yaml — ~/projects/kubernetes — Atom",
+            "percent": 0.333333333333333,
+            "swallows": [
+               {
+               // "class": "^Atom$",
+               // "instance": "^atom$",
+               // "title": "^nginx\\.yaml\\ \\—\\ \\~\\/projects\\/kubernetes\\ \\—\\ Atom$",
+               // "transient_for": "^$",
+               // "window_role": "^browser\\-window$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            // splitv split container with 2 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "splitv",
+            "percent": 0.35244161358811,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 410,
+                       "width": 642,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "snelis@snelis: ~/projects/test",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       // "class": "^Mate\\-terminal$",
+                       // "instance": "^mate\\-terminal$",
+                       // "title": "^snelis\\@snelis\\:\\ \\~\\/projects\\/test$",
+                       // "transient_for": "^$",
+                       // "window_role": "^mate\\-terminal\\-window\\-2284\\-981146375\\-1499435621$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 410,
+                       "width": 642,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "i3-save-tree --output HDMI1 > ~/.config/i3/home.json",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       // "class": "^Mate\\-terminal$",
+                       // "instance": "^mate\\-terminal$",
+                       // "title": "^i3\\-save\\-tree\\ \\-\\-output\\ HDMI1\\ \\>\\ \\~\\/\\.config\\/i3\\/home\\.json$",
+                       // "transient_for": "^$",
+                       // "window_role": "^mate\\-terminal\\-window\\-2284\\-\\-1544814647\\-1499443737$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
+{
+    // workspace with 2 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": null,
+    "type": "workspace",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1430,
+               "width": 1712,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Inbox - Unified Folders - Mozilla Thunderbird",
+            "percent": 0.5,
+            "swallows": [
+               {
+               // "class": "^Thunderbird$",
+               // "instance": "^Mail$",
+               // "title": "^Inbox\\ \\-\\ Unified\\ Folders\\ \\-\\ Mozilla\\ Thunderbird$",
+               // "transient_for": "^$",
+               // "window_role": "^3pane$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1430,
+               "width": 1712,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Calendar - Mozilla Thunderbird",
+            "percent": 0.5,
+            "swallows": [
+               {
+               // "class": "^Thunderbird$",
+               // "instance": "^Mail$",
+               // "title": "^Calendar\\ \\-\\ Mozilla\\ Thunderbird$",
+               // "transient_for": "^$",
+               // "window_role": "^3pane$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // workspace with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": 1,
+    "type": "workspace",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 600,
+               "width": 800,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Spotify",
+            "percent": 1,
+            "swallows": [
+               {
+               // "class": "^Spotify$",
+               // "instance": "^spotify$",
+               // "title": "^Spotify$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
