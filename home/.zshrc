@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/snelis/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker autojump virtualenvwrapper)
+plugins=(git docker autojump virtualenvwrapper pip helm ansible)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,6 +85,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cb="xclip -selection primary"
 alias kub="kubectl"
+alias vim="nvim"
+
+export EDITOR=vim
+export GOPATH=~/go
+export LOCALBIN="~/.local/bin"
+export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$HOME/.local/bin:$PATH
 
 function r-home {
 	autorandr -l home
@@ -100,9 +107,17 @@ export VAULT_ADDR='https://vault.we-riot.local:8200'
 export VAULT_SKIP_VERIFY=1
 
 source <(kubectl completion zsh)
-source <(kompose completion zsh)
+source <(helm completion zsh)
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
+export LD_LIBRARY_PATH=/opt/cuda/lib64/
+#source /opt/anaconda/bin/activate root
+
+TERM=screen-256color
+[[ -z "$TMUX"  ]] && { exec tmux new-session && exit;}
+
+
+

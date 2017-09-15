@@ -172,7 +172,9 @@ focus_follows_mouse yes
 gaps inner 5
 for_window [class=".*"] border pixel 1
 
-exec feh --bg-scale ~/Pictures/wallpapers/new-york.jpg
+#exec feh --bg-center ~/Pictures/wallpapers/weriot.png
+exec feh --bg-center ~/Google\ Drive/We\ Riot\ B.V/WeRiot_LogoPack_1.0/04\ LOGO\ TYPE/DISPLAY/WeRiot_LogoType_Negative_RGB.png
+exec python2 /opt/grive-tools/grive-indicator
 
 bindsym Print exec mate-screenshot -i
 
