@@ -17,6 +17,9 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 filetype plugin indent on
@@ -24,6 +27,8 @@ filetype plugin indent on
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 syntax on
 set mouse=a
