@@ -92,6 +92,7 @@ export GOPATH=~/go
 export LOCALBIN="~/.local/bin"
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$HOME/.local/bin:$PATH
+export PATH=~/.npm-global/bin:$PATH
 
 function r-home {
 	autorandr -l home

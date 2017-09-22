@@ -20,8 +20,12 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'w0rp/ale'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
+
 filetype plugin indent on
 
 let g:python_host_prog = '/usr/bin/python2'
@@ -52,6 +56,22 @@ set splitright
 set autoread
 set noswapfile
 
+" Ale fixers
+let g:ale_fixers = {
+\   'python': ['yapf', 'isort'],
+\   'javascript': ['eslint', 'prettier'],
+\}
+
+" let g:ale_fixers = {}
+" let g:ale_fixers.python = ['yapf', 'isort']
+" let g:ale_fixers.javascript = ['eslint']
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+map <F2> :ALEFix<CR>
+
+
 " theme
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
@@ -67,6 +87,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 map <F3> :NERDTreeToggle<CR>
+
+" ctrl p
 
 " vim airline
 let g:airline#extensions#tabline#enabled = 1
