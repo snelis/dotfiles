@@ -23,10 +23,20 @@ Plugin 'w0rp/ale'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'posva/vim-vue'
+Plugin 'mattn/emmet-vim'
+Plugin 'digitaltoad/vim-pug'
+"Plugin 'Yggdroot/indentLine'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
-
 filetype plugin indent on
+
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+"let g:indent_guides_guide_size = 2
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
@@ -56,6 +66,13 @@ set splitright
 set autoread
 set noswapfile
 
+" Emmet
+let g:user_emmet_expandabbr_key='<C-d>'
+
+
+" NERDCommenter
+map <C-_> <leader>c<Space>
+
 " Ale fixers
 let g:ale_fixers = {
 \   'python': ['yapf', 'isort'],
@@ -73,8 +90,8 @@ map <F2> :ALEFix<CR>
 
 
 " theme
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
+let g:solarized_visibility = "normal"
+let g:solarized_contrast = "normal"
 set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
