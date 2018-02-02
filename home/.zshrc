@@ -95,13 +95,13 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
 
 function r-home {
-	autorandr -l home
-	gsettings set org.mate.font-rendering dpi 96
+    autorandr -l home
+    gsettings set org.mate.font-rendering dpi 96
 }
 
 function r-mobile {
-	autorandr -l mobile
-	gsettings set org.mate.font-rendering dpi 160
+    autorandr -l mobile
+    gsettings set org.mate.font-rendering dpi 160
 }
 
 export VAULT_ADDR='https://vault.we-riot.local:8200'
@@ -110,6 +110,7 @@ export VAULT_SKIP_VERIFY=1
 source <(kubectl completion zsh)
 source <(helm completion zsh)
 
+
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
@@ -117,8 +118,11 @@ source $ZSH/oh-my-zsh.sh
 export LD_LIBRARY_PATH=/opt/cuda/lib64/
 #source /opt/anaconda/bin/activate root
 
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
 TERM=screen-256color
 [[ -z "$TMUX"  ]] && { exec tmux new-session && exit;}
 
-
-
+# direnv
+command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
