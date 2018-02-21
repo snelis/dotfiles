@@ -160,20 +160,27 @@ bar {
         status_command py3status -c ~/.config/i3/status.conf
 }
 
-# Color settings
-client.focused #00C1FF #00C1FF #000088 #00C1FF
+#class                 border  backgr. text    indicator
+client.focused #00C1FF #AAAAAA #000088 #00C1FF
 client.focused_inactive #2C2C2C #2C2C2C #ffffff #2C2C2C
 client.unfocused #2C2C2C #2C2C2C #ffffff #2C2C2C
 client.urgent #00C1FF #00C1FF #000088 #00C1FF
 
 focus_follows_mouse yes
 
+# Gaps
+smart_gaps on
+smart_borders on
+gaps inner 10
+gaps outer 0
+new_window pixel 0
+
 # Window style, border and no titlebar
-gaps inner 5
 for_window [class=".*"] border pixel 1
 
-#exec feh --bg-center ~/Pictures/wallpapers/weriot.png
-exec feh --bg-center ~/Google\ Drive/We\ Riot\ B.V/WeRiot_LogoPack_1.0/04\ LOGO\ TYPE/DISPLAY/WeRiot_LogoType_Negative_RGB.png
+exec --no-startup-id nitrogen --restore
+exec feh --bg-scale ~/Pictures/wallpapers/current.png
+#exec feh --bg-center ~/Google\ Drive/We\ Riot\ B.V/WeRiot_LogoPack_1.0/04\ LOGO\ TYPE/DISPLAY/WeRiot_LogoType_Negative_RGB.png
 exec python2 /opt/grive-tools/grive-indicator
 
 bindsym Print exec mate-screenshot -i

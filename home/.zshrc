@@ -94,14 +94,8 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$HOME/.local/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
 
-function r-home {
-    autorandr -l home
-    gsettings set org.mate.font-rendering dpi 96
-}
-
-function r-mobile {
-    autorandr -l mobile
-    gsettings set org.mate.font-rendering dpi 160
+function ar {
+    /home/snelis/.config/autorandr/$(autorandr 2>&1 | grep detected | awk '{print $1}')/postswitch
 }
 
 export VAULT_ADDR='https://vault.we-riot.local:8200'
