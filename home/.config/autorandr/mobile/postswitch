@@ -1,0 +1,4 @@
+#!/bin/bash
+gsettings set org.mate.font-rendering dpi 170
+i3-msg restart
+gsettings set org.mate.font-rendering dpi 96
