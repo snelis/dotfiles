@@ -4,6 +4,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'jamessan/vim-gnupg'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
@@ -27,10 +28,11 @@ Plugin 'mattn/emmet-vim'
 Plugin 'digitaltoad/vim-pug'
 "Plugin 'Yggdroot/indentLine'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'jiangmiao/auto-pairs'
+" Plugin 'jiangmiao/auto-pairs'
 Plugin 'rking/ag.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'martinda/jenkinsfile-vim-syntax'
 call vundle#end()
 filetype plugin indent on
 
@@ -45,7 +47,7 @@ set scrolloff=5
 
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+" let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
 let g:ycm_python_binary_path = 'python'
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
@@ -59,6 +61,13 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
+
+noremap <F12> <Esc>:syntax sync fromstart<CR>
+inoremap <F12> <C-o>:syntax sync fromstart<CR>
+
+" Vim diff
+nnoremap <leader>dg2 :diffget //2<cr>
+nnoremap <leader>dg3 :diffget //3<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -99,8 +108,7 @@ set autoread
 set noswapfile
 
 " Emmet
-" let g:user_emmet_expandabbr_key='<C-d>'
-
+let g:user_emmet_expandabbr_key='<C-S-d>'
 
 " NERDCommenter
 map <C-_> <leader>c<Space>
@@ -149,13 +157,15 @@ nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " tmux-navigator
-let g:tmux_navigator_no_mappings = 1
+" let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_save_on_switch = 2
 
-nnoremap <silent> <C-S-Left> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-S-Down> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-S-Up> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-S-Right> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-S-\> :TmuxNavigatePrevious<cr>
+" nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+" nnoremap <silent> <C-S-Left> :TmuxNavigateLeft<cr>
+" nnoremap <silent> <C-S-Down> :TmuxNavigateDown<cr>
+" nnoremap <silent> <C-S-Up> :TmuxNavigateUp<cr>
+" nnoremap <silent> <C-S-Right> :TmuxNavigateRight<cr>
+" nnoremap <silent> <C-S-\> :TmuxNavigatePrevious<cr>
 
 let g:SuperTabMappingForward = '<tab>'
 

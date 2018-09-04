@@ -18,3 +18,6 @@ export PS1="\[\033[38;5;12m\][\[$(tput sgr0)\]\[\033[38;5;10m\]\u\[$(tput sgr0)\
 #[ -e "$DIR_COLORS" ] || DIR_COLORS=""
 #eval "`dircolors -b $DIR_COLORS`"
 
+
+# added by travis gem
+[ -f /home/snelis/.travis/travis.sh ] && source /home/snelis/.travis/travis.sh

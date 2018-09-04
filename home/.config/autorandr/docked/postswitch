@@ -1,4 +1,4 @@
 #!/bin/bash
-feh --bg-scale ~/Pictures/wallpapers/current.png
+# feh --bg-scale ~/Pictures/wallpapers/current.png
 gsettings set org.mate.font-rendering dpi 148
-i3-msg restart
+# i3-msg restart

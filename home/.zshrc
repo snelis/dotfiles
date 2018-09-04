@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker autojump virtualenvwrapper pip helm ansible)
+plugins=(git docker autojump pip helm ansible pyenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,8 +115,28 @@ export LD_LIBRARY_PATH=/opt/cuda/lib64/
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PIP_EXTRA_INDEX_URL=https://devpi.platform.we-riot.com/root/weriot 
+
+function auto_pipenv_shell {
+    if [ ! -n "${PIPENV_ACTIVE+1}" ]; then
+        if [ -f "Pipfile" ] ; then
+            pipenv shell
+        fi
+    fi
+}
+
+function cd {
+    builtin cd "$@"
+    # auto_pipenv_shell
+}
+
 TERM=screen-256color
 [[ -z "$TMUX"  ]] && { exec tmux new-session && exit;}
 
 # direnv
 command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
+
+# added by travis gem
+[ -f /home/snelis/.travis/travis.sh ] && source /home/snelis/.travis/travis.sh

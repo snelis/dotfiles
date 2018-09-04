@@ -171,7 +171,7 @@ focus_follows_mouse yes
 # Gaps
 smart_gaps on
 smart_borders on
-gaps inner 10
+gaps inner 5
 gaps outer 0
 new_window pixel 0
 
