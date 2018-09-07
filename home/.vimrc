@@ -136,6 +136,8 @@ set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
+hi Normal ctermbg=233
+hi LineNr ctermbg=234
 
 " Nerdtree
 autocmd StdinReadPre * let s:std_in=1
