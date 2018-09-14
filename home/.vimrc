@@ -39,8 +39,6 @@ filetype plugin indent on
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 "let g:indent_guides_guide_size = 2
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 
 let g:ag_working_path_mode="r"
 set scrolloff=5
@@ -138,6 +136,10 @@ set background=dark
 colorscheme solarized
 hi Normal ctermbg=233
 hi LineNr ctermbg=234
+" hi Normal guibg=#192224 guisp=#192224 gui=NONE ctermfg=196 ctermbg=235 cterm=NONE
+
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
 
 " Nerdtree
 autocmd StdinReadPre * let s:std_in=1
