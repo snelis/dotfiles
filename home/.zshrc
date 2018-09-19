@@ -133,10 +133,11 @@ function cd {
 }
 
 TERM=screen-256color
-[[ -z "$TMUX"  ]] && { exec tmux new-session && exit;}
 
 # direnv
 command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
 
 # added by travis gem
 [ -f /home/snelis/.travis/travis.sh ] && source /home/snelis/.travis/travis.sh
+
+[[ -z "$TMUX"  ]] && { exec tmux new-session && exit;}
