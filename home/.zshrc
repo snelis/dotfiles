@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker autojump pip helm ansible pyenv)
+plugins=(git docker autojump pip helm ansible pyenv minikube)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -93,9 +93,10 @@ export LOCALBIN="~/.local/bin"
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$HOME/.local/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
+export PATH=~/.yarn/bin:$PATH
 
 function ar {
-    /home/snelis/.config/autorandr/$(autorandr 2>&1 | grep detected | awk '{print $1}')/postswitch
+    bash /home/snelis/.config/autorandr/$(autorandr 2>&1 | grep detected | awk '{print $1}')/postswitch
 }
 
 export VAULT_ADDR='https://vault.we-riot.local:8200'
@@ -128,3 +129,4 @@ command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 [[ -z "$TMUX"  ]] && { exec tmux new-session && exit;}
+source /usr/share/nvm/init-nvm.sh

@@ -1,39 +1,49 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
 
-Plugin 'jamessan/vim-gnupg'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'valloric/youcompleteme'
-Plugin 'ervandew/supertab'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-surround'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'w0rp/ale'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'posva/vim-vue'
-Plugin 'mattn/emmet-vim'
-Plugin 'digitaltoad/vim-pug'
-"Plugin 'Yggdroot/indentLine'
-Plugin 'nathanaelkane/vim-indent-guides'
-" Plugin 'jiangmiao/auto-pairs'
-Plugin 'rking/ag.vim'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'martinda/jenkinsfile-vim-syntax'
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+Plug 'jamessan/vim-gnupg'
+Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+" Plug 'valloric/youcompleteme'
+" Completions
+
+Plug 'ervandew/supertab'
+Plug 'edkolev/tmuxline.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-surround'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mileszs/ack.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'w0rp/ale'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdcommenter'
+Plug 'posva/vim-vue'
+Plug 'wavded/vim-stylus'
+Plug 'mattn/emmet-vim'
+Plug 'digitaltoad/vim-pug'
+"Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'rking/ag.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'martinda/jenkinsfile-vim-syntax'
+
+" Initialize plugin system
+call plug#end()
+
+
 filetype plugin indent on
 
 let g:indent_guides_enable_on_vim_startup = 1
@@ -53,6 +63,8 @@ let g:ycm_key_list_previous_completion=[]
 " For javascript we need to add a space after // 
 let NERDSpaceDelims=1
 
+let g:EditorConfig_core_mode = 'external_command'
+
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
@@ -62,10 +74,6 @@ nmap <Leader>r :Tags<CR>
 
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
-
-" Vim diff
-nnoremap <leader>dg2 :diffget //2<cr>
-nnoremap <leader>dg3 :diffget //3<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -113,9 +121,14 @@ map <C-_> <leader>c<Space>
 
 " Ale fixers
 let g:ale_fix_on_save = 0
+
+let g:ale_sign_column_always = 1
+" let g:ale_linters_explicit = 1
+
+let g:javascript_jshint_executable = 'foobar'
 let g:ale_fixers = {
 \   'python': ['yapf', 'isort'],
-\   'javascript': ['eslint', 'prettier_standard'],
+\   'javascript': ['eslint'],
 \   'vue': ['eslint'],
 \}
 " let g:ale_javascript_prettier_options = '--single-quote --space-before-function-paren --no-semi'
@@ -125,6 +138,7 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 map <F2> :ALEFix<CR>
 map <F5> :noh<CR>
+map <F6> :NERDTreeFind<CR>
 
 
 " theme
