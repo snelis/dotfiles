@@ -1,8 +1,0 @@
-[Unit]
-Description=Run some powersaving checks
-
-[Service]
-ExecStart=/usr/bin/sh -c '/usr/local/bin/powersave'
-
-[Install]
-WantedBy=multi-user.target
