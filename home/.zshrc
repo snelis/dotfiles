@@ -1,3 +1,4 @@
+(cat ~/.cache/wal/sequences &)
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -116,7 +117,7 @@ export LD_LIBRARY_PATH=/opt/cuda/lib64/
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-eval "$(pyenv init -)"
+eval "$(pyenv init - zsh --no-rehash)"
 eval "$(pyenv virtualenv-init -)"
 # export PIP_EXTRA_INDEX_URL=https://devpi.platform.we-riot.com/root/weriot 
 

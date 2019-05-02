@@ -12,6 +12,7 @@ Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'dylanaraps/wal.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -142,18 +143,19 @@ map <F6> :NERDTreeFind<CR>
 
 
 " theme
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
+" let g:solarized_visibility = "high"
+" let g:solarized_contrast = "high"
 set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
-hi Normal ctermbg=233
-hi LineNr ctermbg=234
+" colorscheme solarized
+colorscheme wal
+" hi Normal ctermbg=233
+" hi LineNr ctermbg=234
 " hi Normal guibg=#192224 guisp=#192224 gui=NONE ctermfg=196 ctermbg=235 cterm=NONE
 
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
 
 " Nerdtree
 autocmd StdinReadPre * let s:std_in=1
@@ -164,9 +166,16 @@ map <F3> :NERDTreeToggle<CR>
 
 " vim airline
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'deus'
+let g:airline_theme = 'serene'
+let g:airline_theme = 'raven'
+let g:airline_theme = 'wombat'
+let g:airline_theme = 'dark'
+let g:airline_theme = 'term'
+let g:airline_theme = 'base16color'
+
 
 "" YouCompleteMe
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
