@@ -87,8 +87,9 @@ source $ZSH/oh-my-zsh.sh
 alias cb="xclip -selection primary"
 alias kub="kubectl"
 alias vim="nvim"
+alias fix-i3-size="gsettings set org.mate.font-rendering dpi 180 ; i3-msg restart ; sleep 1 ; gsettings set org.mate.font-rendering dpi 0.0"
 
-export EDITOR=vim
+export EDITOR=nvim
 export GOPATH=~/go
 export LOCALBIN="~/.local/bin"
 export PATH=$PATH:$(go env GOPATH)/bin
@@ -104,7 +105,7 @@ export VAULT_ADDR='https://vault.we-riot.local:8200'
 export VAULT_SKIP_VERIFY=1
 
 source <(kubectl completion zsh)
-source <(helm completion zsh)
+#source <(helm completion zsh)
 
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
@@ -116,8 +117,13 @@ export LD_LIBRARY_PATH=/opt/cuda/lib64/
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_OPTS='--height 50% --border --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'
+export FZF_CTRL_R_OPTS="--no-height --no-preview"
 
-eval "$(pyenv init - zsh --no-rehash)"
+source <(stern --completion=zsh)
+
+eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 # export PIP_EXTRA_INDEX_URL=https://devpi.platform.we-riot.com/root/weriot 
 
@@ -126,8 +132,4 @@ TERM=screen-256color
 # direnv
 command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
 
-# added by travis gem
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-
 [[ -z "$TMUX"  ]] && { exec tmux new-session && exit;}
-source /usr/share/nvm/init-nvm.sh

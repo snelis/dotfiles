@@ -25,7 +25,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mileszs/ack.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdcommenter'
@@ -36,16 +36,20 @@ Plug 'digitaltoad/vim-pug'
 "Plug 'Yggdroot/indentLine'
 Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'jiangmiao/auto-pairs'
-Plug 'rking/ag.vim'
+" Plug 'rking/ag.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'martinda/jenkinsfile-vim-syntax'
+Plug 'sheerun/vim-polyglot'
 
 " Initialize plugin system
 call plug#end()
 
-
 filetype plugin indent on
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
@@ -115,7 +119,7 @@ set autoread
 set noswapfile
 
 " Emmet
-let g:user_emmet_expandabbr_key='<C-S-d>'
+let g:user_emmet_expandabbr_key='<C-a>'
 
 " NERDCommenter
 map <C-_> <leader>c<Space>
