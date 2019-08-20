@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/snelis/wal-images/green.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#191b19",
+        "foreground": "#f2f0c8",
+        "cursor": "#f2f0c8"
+    },
+    "colors": {
+        "color0": "#191b19",
+        "color1": "#c46022",
+        "color2": "#78c623",
+        "color3": "#dc9938",
+        "color4": "#d8b127",
+        "color5": "#e0a252",
+        "color6": "#e6ce73",
+        "color7": "#f2f0c8",
+        "color8": "#a9a88c",
+        "color9": "#c46022",
+        "color10": "#78c623",
+        "color11": "#dc9938",
+        "color12": "#d8b127",
+        "color13": "#e0a252",
+        "color14": "#e6ce73",
+        "color15": "#f2f0c8"
+    }
+}
