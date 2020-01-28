@@ -3,3 +3,6 @@
 	br = branch
 	ci = commit
 	st = status
+[user]
+	email = nielslensink@gmail.com
+	name = Niels Lensink

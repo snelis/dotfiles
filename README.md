@@ -36,7 +36,8 @@ yay -S \
   gnome-keyring \
   seahorse \
   playerctl \
-  xorg-xbacklight
+  xorg-xbacklight \
+  xorg-xwininfo
 ```
 
 ## Dotfiles
