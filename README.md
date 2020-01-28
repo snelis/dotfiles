@@ -31,7 +31,8 @@ yay -S \
   bat \
   python-pip \
   the_silver_searcher \
-  xclip
+  xclip \
+  autojump
 ```
 
 ## Dotfiles
