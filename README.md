@@ -29,7 +29,8 @@ yay -S \
   neovim-plug \
   tmux \
   bat \
-  deoplete
+  python-pip \
+  the_silver_searcher
 ```
 
 # Dotfiles
@@ -37,6 +38,9 @@ yay -S \
 chezmoi init https://github.com/snelis/dotfiles
 chezmoi apply
 ```
+
+## Install vim plugins
+nvim +PlugInstall +qall
   
 # Change shell to zsh
 ```
