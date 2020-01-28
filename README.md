@@ -33,7 +33,8 @@ yay -S \
   the_silver_searcher \
   xclip \
   autojump \
-  keychain
+  gnome-keyring \
+  seahorse
 ```
 
 ## Dotfiles
