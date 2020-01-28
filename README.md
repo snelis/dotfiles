@@ -32,7 +32,8 @@ yay -S \
   python-pip \
   the_silver_searcher \
   xclip \
-  autojump
+  autojump \
+  keychain
 ```
 
 ## Dotfiles
