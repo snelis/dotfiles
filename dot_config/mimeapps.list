@@ -1,0 +1,17 @@
+[Default Applications]
+image/jpeg=viewnior.desktop;gpicview.desktop;
+image/png=viewnior.desktop;gpicview.desktop;
+text/plain=mousepad.desktop
+x-scheme-handler/mailto=userapp-Thunderbird.desktop
+message/rfc822=userapp-Thunderbird.desktop
+application/pdf=epdfview.desktop
+application/x-bittorrent=deluge.desktop
+
+[Added Associations]
+image/jpeg=viewnior.desktop;gpicview.desktop;
+image/png=viewnior.desktop;gpicview.desktop;
+text/plain=mousepad.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird.desktop;
+message/rfc822=userapp-Thunderbird.desktop;
+application/pdf=epdfview.desktop;
+application/x-bittorrent=deluge.desktop;
