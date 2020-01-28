@@ -34,7 +34,9 @@ yay -S \
   xclip \
   autojump \
   gnome-keyring \
-  seahorse
+  seahorse \
+  playerctl \
+  xorg-xbacklight
 ```
 
 ## Dotfiles
