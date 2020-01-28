@@ -30,7 +30,8 @@ yay -S \
   tmux \
   bat \
   python-pip \
-  the_silver_searcher
+  the_silver_searcher \
+  xclip
 ```
 
 ## Dotfiles
