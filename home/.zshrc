@@ -1,14 +1,13 @@
-(cat ~/.cache/wal/sequences &)
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+# export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,9 +51,9 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker autojump pip helm ansible pyenv minikube)
+# plugins=(git docker autojump pip helm ansible pyenv minikube)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -84,50 +83,73 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cb="xclip -selection primary"
-alias kub="kubectl"
-alias vim="nvim"
-alias fix-i3-size="gsettings set org.mate.font-rendering dpi 180 ; i3-msg restart ; sleep 1 ; gsettings set org.mate.font-rendering dpi 0.0"
+# alias cb="xclip -selection primary"
+# alias kub="kubectl"
+# alias vim="nvim"
+# alias fix-i3-size="gsettings set org.mate.font-rendering dpi 180 ; i3-msg restart ; sleep 1 ; gsettings set org.mate.font-rendering dpi 0.0"
 
-export EDITOR=nvim
-export GOPATH=~/go
-export LOCALBIN="~/.local/bin"
-export PATH=$PATH:$(go env GOPATH)/bin
-export PATH=$HOME/.local/bin:$PATH
-export PATH=~/.npm-global/bin:$PATH
-export PATH=~/.yarn/bin:$PATH
+# export EDITOR=nvim
+# export GOPATH=~/go
+# export GOPROXY=https://proxy.golang.org/
+# export GOROOT=/usr/lib/go
+# export LOCALBIN="~/.local/bin"
+# export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH=$HOME/.local/bin:$PATH
+# export PATH=~/.npm-global/bin:$PATH
+# export PATH=~/.yarn/bin:$PATH
 
-function ar {
-    bash /home/snelis/.config/autorandr/$(autorandr 2>&1 | grep detected | awk '{print $1}')/postswitch
-}
+# export VAULT_ADDR='https://vault.we-riot.local:8200'
+# export VAULT_SKIP_VERIFY=1
 
-export VAULT_ADDR='https://vault.we-riot.local:8200'
-export VAULT_SKIP_VERIFY=1
+# source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+# fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+# fpath+=~/.zfunc
 
-source <(kubectl completion zsh)
-#source <(helm completion zsh)
+# # source $ZSH/oh-my-zsh.sh
+# export LD_LIBRARY_PATH=/opt/cuda/lib64/
+# #source /opt/anaconda/bin/activate root
 
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+# eval "$(pyenv init - zsh)"
+# eval "$(pyenv virtualenv-init -)"
+# source <(kubectl completion zsh)
+# source <(oc completion zsh)
+# #source <(helm completion zsh)
+# # export PIP_EXTRA_INDEX_URL=https://devpi.platform.we-riot.com/root/weriot 
+# export PYTHON_CONFIGURE_OPTS="--enable-shared"
 
-source $ZSH/oh-my-zsh.sh
-export LD_LIBRARY_PATH=/opt/cuda/lib64/
-#source /opt/anaconda/bin/activate root
+# TERM=screen-256color
+
+(cat ~/.cache/wal/sequences &)
+source /usr/share/zsh/share/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle pip
+antigen bundle docker
+antigen bundle pyenv
+antigen bundle autojump
+antigen bundle command-not-found
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme robbyrussell
+
+# Tell Antigen that you're done.
+antigen apply
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--height 50% --border --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'
 export FZF_CTRL_R_OPTS="--no-height --no-preview"
-
-source <(stern --completion=zsh)
-
-eval "$(pyenv init - zsh)"
-eval "$(pyenv virtualenv-init -)"
-# export PIP_EXTRA_INDEX_URL=https://devpi.platform.we-riot.com/root/weriot 
-
-TERM=screen-256color
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 # direnv
 command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"

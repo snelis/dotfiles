@@ -5,8 +5,13 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-go'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'fatih/vim-go'
+Plug 'davidhalter/jedi-vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
@@ -16,16 +21,12 @@ Plug 'dylanaraps/wal.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-" Plug 'valloric/youcompleteme'
-" Completions
-
 Plug 'ervandew/supertab'
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mileszs/ack.vim'
-" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdcommenter'
@@ -33,17 +34,30 @@ Plug 'posva/vim-vue'
 Plug 'wavded/vim-stylus'
 Plug 'mattn/emmet-vim'
 Plug 'digitaltoad/vim-pug'
-"Plug 'Yggdroot/indentLine'
-Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'jiangmiao/auto-pairs'
-" Plug 'rking/ag.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'martinda/jenkinsfile-vim-syntax'
 Plug 'sheerun/vim-polyglot'
 
+" vim coverage
+Plug 'google/vim-maktaba'
+Plug 'google/vim-coverage'
+Plug 'google/vim-glaive'
+
 " Initialize plugin system
 call plug#end()
+call glaive#Install()
+
+Glaive coverage plugin[mappings]
+Glaive coverage uncovered_text='▴▴'
+Glaive coverage covered_ctermbg='darkgreen'
+nnoremap <unique> <script> <silent> <Leader>ct :CoverageToggle<cr>
+nnoremap <unique> <script> <silent> <F9> :CoverageToggle<cr>
+
+let g:deoplete#enable_at_startup = 1
+let g:jedi#completions_enabled = 0
+
+" call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 filetype plugin indent on
 
@@ -53,13 +67,12 @@ endif
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-"let g:indent_guides_guide_size = 2
 
 let g:ag_working_path_mode="r"
 set scrolloff=5
 
 let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '/home/snelis/.pyenv/versions/home/bin/python3.7'
 " let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
 let g:ycm_python_binary_path = 'python'
 let g:ycm_key_list_select_completion=[]
@@ -128,6 +141,7 @@ map <C-_> <leader>c<Space>
 let g:ale_fix_on_save = 0
 
 let g:ale_sign_column_always = 1
+let g:ale_completion_enabled = 1
 " let g:ale_linters_explicit = 1
 
 let g:javascript_jshint_executable = 'foobar'
@@ -140,6 +154,7 @@ let g:ale_fixers = {
 
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
+let g:ale_sign_warning = '⚠'" Enable integration with airline.
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 map <F2> :ALEFix<CR>
 map <F5> :noh<CR>
@@ -172,17 +187,19 @@ map <F3> :NERDTreeToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'deus'
-let g:airline_theme = 'serene'
-let g:airline_theme = 'raven'
-let g:airline_theme = 'wombat'
-let g:airline_theme = 'dark'
-let g:airline_theme = 'term'
-let g:airline_theme = 'base16color'
+" let g:airline_theme = 'deus'
+" let g:airline_theme = 'serene'
+" let g:airline_theme = 'raven'
+" let g:airline_theme = 'wombat'
+" let g:airline_theme = 'dark_minimal'
+let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'term'
+" let g:airline_theme = 'base16color'
 
 
 "" YouCompleteMe
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
+" nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
+let g:jedi#goto_command = "<leader>gd"
 
 "SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -202,3 +219,7 @@ let g:SuperTabMappingForward = '<tab>'
 
 " filetypes
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+set cursorline
+hi CursorLine cterm=NONE ctermbg=235 ctermfg=NONE
+" hi CursorLineNr cterm=NONE ctermfg=red
