@@ -33,7 +33,7 @@ yay -S \
   the_silver_searcher
 ```
 
-# Dotfiles
+## Dotfiles
 ```
 chezmoi init https://github.com/snelis/dotfiles
 chezmoi apply
