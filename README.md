@@ -56,3 +56,15 @@ nvim +UpdateRemote +qall
 ```
 chsh -s /usr/bin/zsh
 ```
+
+```
+chezmoi add ~/.config/nvim/init.vim
+chezmoi add ~/.config/mimeapps.list
+chezmoi add ~/.config/i3/config
+chezmoi add ~/.config/i3/status.conf
+chezmoi add ~/.config/nvim/init.vim
+chezmoi add ~/.config/wal/sequences
+chezmoi add ~/.profile
+chezmoi add ~/.tmux.conf
+chezmoi add ~/.zshrc
+```
