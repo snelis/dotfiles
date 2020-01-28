@@ -40,7 +40,10 @@ chezmoi apply
 ```
 
 ## Install vim plugins
+```
 nvim +PlugInstall +qall
+nvim +UpdateRemote +qall
+```
   
 # Change shell to zsh
 ```
