@@ -52,11 +52,12 @@ nvim +PlugInstall +qall
 nvim +UpdateRemote +qall
 ```
   
-# Change shell to zsh
+## Change shell to zsh
 ```
 chsh -s /usr/bin/zsh
 ```
 
+## Add files back to chezmoi when changed
 ```
 chezmoi add ~/.config/nvim/init.vim
 chezmoi add ~/.config/mimeapps.list
