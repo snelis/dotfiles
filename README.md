@@ -37,7 +37,9 @@ yay -S \
   seahorse \
   playerctl \
   xorg-xbacklight \
-  xorg-xwininfo
+  xorg-xwininfo \
+  signal-desktop \
+  discord
 ```
 
 ## Dotfiles

@@ -71,8 +71,8 @@ let g:indent_guides_auto_colors = 0
 let g:ag_working_path_mode="r"
 set scrolloff=5
 
-let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/home/snelis/.pyenv/versions/home/bin/python3.7'
+let g:python_host_prog = 'python3'
+let g:python3_host_prog = 'python3'
 " let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
 let g:ycm_python_binary_path = 'python'
 let g:ycm_key_list_select_completion=[]

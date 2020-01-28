@@ -120,7 +120,7 @@
 
 # TERM=screen-256color
 
-(cat ~/.cache/wal/sequences &)
+(cat ~/.config/wal/sequences &)
 source /usr/share/zsh/share/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -150,6 +150,8 @@ export FZF_DEFAULT_OPTS='--height 50% --border --preview "[[ $(file --mime {}) =
 export FZF_CTRL_R_OPTS="--no-height --no-preview"
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+alias vim="nvim"
 
 # direnv
 command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
