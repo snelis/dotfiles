@@ -2,21 +2,10 @@
 
 This is based on manjaro i3.
 
-## Install our AUR helper
-
+## Install our AUR helper and update the system
 ```
-sudo pacman-mirrors --country Netherlands && sudo pacman -Syuu
-sudo pacman -S yay
-```
-
-## Update the system
-```yay```
-
-## Configure the monitors
-```
-xrandr \
-  --output USB-C-0 --primary --pos 0x0 --mode 2560x1440 --rate 165 --rotate left \
-  --output DP-2 --pos 1440x440 --mode 2560x1440 --rate 165
+sudo pacman-mirrors --country Netherlands
+sudo pacman -Syuu yay
 ```
 
 ## Datetime
@@ -55,6 +44,14 @@ yay -S \
   autorandr \
   discord \
   woeusb
+```
+
+## Configure the monitors
+```
+xrandr \
+  --output USB-C-0 --primary --pos 0x0 --mode 2560x1440 --rate 165 --rotate left \
+  --output DP-2 --pos 1440x440 --mode 2560x1440 --rate 165 \
+  && autorandr -s default
 ```
 
 ## Dotfiles
