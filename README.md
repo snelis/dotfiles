@@ -86,6 +86,8 @@ chezmoi add ~/.config/i3/config
 chezmoi add ~/.config/i3/status.conf
 chezmoi add ~/.config/nvim/init.vim
 chezmoi add ~/.config/wal/sequences
+chezmoi add ~/.config/dunst/dunstrc
+chezmoi add ~/.config/compton.conf
 chezmoi add ~/.profile
 chezmoi add ~/.tmux.conf
 chezmoi add ~/.zshrc
