@@ -53,7 +53,8 @@ yay -S \
   xorg-xwininfo \
   signal-desktop \
   autorandr \
-  discord
+  discord \
+  woeusb
 ```
 
 ## Dotfiles
