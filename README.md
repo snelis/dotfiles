@@ -93,10 +93,3 @@ chezmoi add ~/.profile
 chezmoi add ~/.tmux.conf
 chezmoi add ~/.zshrc
 ```
-
-```
-sudo grub-install
-sudo os-prober
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-sudo grub-editenv - unset menu_auto_hide
-```
