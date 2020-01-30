@@ -14,9 +14,9 @@ sudo timedatectl set-ntp true
 sudo timedatectl set-local-rtc 0
 ```
 
-## Apps i like
+## Apps i like, mind the `--noconfirm`
 ```
-yay -S \
+yay --noconfirm -S \
   rofi \
   spotify \
   chromium \
@@ -44,6 +44,7 @@ yay -S \
   autorandr \
   discord \
   mate-utils \
+  docker \
   woeusb
 ```
 
@@ -76,7 +77,6 @@ install_pulse
 ## Docker
 
 ```
-yay -S docker
 systemctl enable --now docker.service
 sudo usermod -a -G docker $USER
 newgroup docker
