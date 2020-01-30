@@ -49,8 +49,8 @@ yay -S \
 ## Configure the monitors
 ```
 xrandr \
-  --output USB-C-0 --primary --pos 0x0 --mode 2560x1440 --rate 165 --rotate left \
-  --output DP-2 --pos 1440x440 --mode 2560x1440 --rate 165 \
+  --output USB-C-0 --pos 0x0 --mode 2560x1440 --rate 165 --rotate left \
+  --output DP-2 --pos 1440x440 --mode 2560x1440 --rate 165 --primary \
   && autorandr -s default
 ```
 
