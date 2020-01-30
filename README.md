@@ -43,6 +43,7 @@ yay -S \
   signal-desktop \
   autorandr \
   discord \
+  mate-utils \
   woeusb
 ```
 
