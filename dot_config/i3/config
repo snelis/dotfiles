@@ -156,8 +156,8 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
-set $ws9 9:  Chat
-set $ws0 10:  Media 
+set $ws9 9:  Chat 9
+set $ws0 10:  Media 10 
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -340,7 +340,7 @@ bar {
 	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
+    tray_output primary
 #	tray_output eDP1
 
 	bindsym button4 nop
