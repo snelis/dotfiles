@@ -45,6 +45,10 @@ yay --noconfirm -S \
   discord \
   mate-utils \
   docker \
+  docker-compose \
+  pyenv \
+  pyenv-virtualenv \
+  postgresql-libs \
   woeusb
 ```
 
