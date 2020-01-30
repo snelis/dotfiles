@@ -73,6 +73,16 @@ nvim +UpdateRemote +qall
 install_pulse
 ```
 
+## Docker
+
+```
+yay -S docker
+systemctl enable --now docker.service
+sudo usermod -a -G docker $USER
+newgroup docker
+docker version
+```
+
 ## Change shell to zsh
 ```
 chsh -s /usr/bin/zsh
