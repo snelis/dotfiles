@@ -50,6 +50,8 @@ yay --noconfirm -S \
   pyenv-virtualenv \
   postgresql-libs \
   py3status \
+  netcat \
+  neofetch \
   woeusb
 ```
 
