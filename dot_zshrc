@@ -110,8 +110,8 @@
 # #source /opt/anaconda/bin/activate root
 
 
-# eval "$(pyenv init - zsh)"
-# eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
 # source <(kubectl completion zsh)
 # source <(oc completion zsh)
 # #source <(helm completion zsh)
@@ -130,9 +130,14 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle pip
 antigen bundle docker
-antigen bundle pyenv
 antigen bundle autojump
 antigen bundle command-not-found
+
+# Python Plugins
+antigen bundle pip
+antigen bundle pyenv
+antigen bundle python
+antigen bundle virtualenv
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -148,6 +153,7 @@ source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--height 50% --border --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'
 export FZF_CTRL_R_OPTS="--no-height --no-preview"
+export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 export EDITOR='nvim'
 export VISUAL='nvim'
 

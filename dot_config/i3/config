@@ -154,8 +154,8 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
-set $ws9 9:  Chat 9
-set $ws0 10:  Media 10 
+set $ws9 9
+set $ws0 10
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -334,7 +334,7 @@ set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
-	status_command i3status
+	status_command py3status
 	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'

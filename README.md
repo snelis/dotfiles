@@ -49,7 +49,16 @@ yay --noconfirm -S \
   pyenv \
   pyenv-virtualenv \
   postgresql-libs \
+  py3status \
   woeusb
+```
+
+## py3status modules
+```
+pip install --user \
+    pydbus \
+    tzlocal \
+    pytz
 ```
 
 ## Configure the monitors
