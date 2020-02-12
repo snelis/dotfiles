@@ -98,6 +98,11 @@ newgroup docker
 docker version
 ```
 
+## kernel options for my Dell XPS 9560
+```
+pcie_port_pm=off acpi_rev_override=1 acpi_osi=Linux acpi_osi=! "acpi_osi=Windows 2009" modprobe.blacklist=nouveau,nvidia nouveau.modeset=0 acpi_backlight=none intel_iommu=on iommu=pt overlay.metacopy=N
+```
+
 ## Change shell to zsh
 ```
 chsh -s /usr/bin/zsh
