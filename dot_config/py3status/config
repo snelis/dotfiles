@@ -14,12 +14,11 @@ general {
 #order += "ipv6"
 #order += "bitcoin_price"
 order += "spotify"
-order += "volume master"
+# order += "volume master"
 order += "net_rate"
 order += "sysdata"
 # order += "nvidia_smi"
 # order += "nvidia_temp"
-order += "arch_updates"
 order += "wifi _first_"
 order += "ethernet _first_"
 order += "vpn_status"
@@ -35,8 +34,7 @@ bitcoin_price {
 wifi _first_{
 	bitrate_bad = 1
 	bitrate_degraded = 1
-	format_up = ": {ip} {ssid} {signal_percent}"
-	format_down = ""
+    format = 'W: {ip} {signal_percent}% {ssid}|wifi'
 }
 
 battery_level {
@@ -52,7 +50,7 @@ arch_updates {
 }
 
 net_rate {
-	format = "{up} {down}"
+    format = "{up} {down}"
 	format_up = d
 }
 
@@ -76,10 +74,6 @@ sysdata {
 	on_click 1 = "exec mate-system-monitor"
 }
 
-tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
-}
-
 load {
         format = " %1min"
 }
@@ -89,11 +83,9 @@ disk "/" {
 }
 
 vpn_status {
-	format = " {name}|: no"
+	format = " {name}|: no"
     cache_timeout = 1
     check_pid = true
     pidfile = "/sys/class/net/tun0/dev_id"
-	on_click 1 = "exec nmcli connection up weriot-vpn"
-	on_click 3 = "exec nmcli connection down weriot-vpn"
 }
 
