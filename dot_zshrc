@@ -156,10 +156,11 @@ export FZF_CTRL_R_OPTS="--no-height --no-preview"
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 export EDITOR='nvim'
 export VISUAL='nvim'
+export VIRTUAL_ENV_DISABLE_PROMPT=
 
 alias vim="nvim"
 
 # direnv
-command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
+# command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
 
 [[ -z "$TMUX"  ]] && { exec tmux new-session && exit;}
