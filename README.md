@@ -123,3 +123,7 @@ chezmoi add ~/.profile
 chezmoi add ~/.tmux.conf
 chezmoi add ~/.zshrc
 ```
+
+```
+nvim "+CocInstall coc-json" "+CocInstall coc-python" +qa
+```
