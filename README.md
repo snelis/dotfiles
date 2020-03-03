@@ -52,7 +52,9 @@ yay --noconfirm -S \
   py3status \
   netcat \
   neofetch \
-  woeusb
+  woeusb \
+  nodejs \
+  npm
 ```
 
 ## py3status modules
@@ -125,5 +127,6 @@ chezmoi add ~/.zshrc
 ```
 
 ```
+pip install black isort
 nvim "+CocInstall coc-json" "+CocInstall coc-python" +qa
 ```
