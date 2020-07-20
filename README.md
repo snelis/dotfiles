@@ -46,6 +46,7 @@ yay --noconfirm -S \
   mate-utils \
   docker \
   docker-compose \
+  docker-machine-driver-kvm2 \
   pyenv \
   pyenv-virtualenv \
   postgresql-libs \
@@ -54,7 +55,12 @@ yay --noconfirm -S \
   neofetch \
   woeusb \
   nodejs \
-  npm
+  ctags \
+  npm \
+  libvirt \
+  qemu \
+  ebtables \
+  direnv
 ```
 
 ## py3status modules
@@ -129,4 +135,9 @@ chezmoi add ~/.zshrc
 ```
 pip install black isort
 nvim "+CocInstall coc-json" "+CocInstall coc-python" +qa
+
+```
+
+```
+sudo usermod -a -G libvirt $(whoami)
 ```

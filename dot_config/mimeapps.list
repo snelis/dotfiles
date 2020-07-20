@@ -2,16 +2,21 @@
 image/jpeg=viewnior.desktop;gpicview.desktop;
 image/png=viewnior.desktop;gpicview.desktop;
 text/plain=mousepad.desktop
-x-scheme-handler/mailto=userapp-Thunderbird.desktop
+x-scheme-handler/mailto=userapp-Evolution-T1YPM0.desktop
 message/rfc822=userapp-Thunderbird.desktop
 application/pdf=epdfview.desktop
 application/x-bittorrent=deluge.desktop
+x-scheme-handler/webcal=chromium.desktop
+x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/mailspring=mailspring.desktop
 
 [Added Associations]
 image/jpeg=viewnior.desktop;gpicview.desktop;
 image/png=viewnior.desktop;gpicview.desktop;
 text/plain=mousepad.desktop;
-x-scheme-handler/mailto=userapp-Thunderbird.desktop;
 message/rfc822=userapp-Thunderbird.desktop;
 application/pdf=epdfview.desktop;
 application/x-bittorrent=deluge.desktop;
+text/csv=freeoffice-planmaker.desktop;
+x-scheme-handler/mailto=userapp-Evolution-T1YPM0.desktop;
+application/x-ole-storage=org.gnome.Evolution.desktop;

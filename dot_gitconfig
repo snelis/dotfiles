@@ -4,3 +4,8 @@
 	ci = commit
 	st = status
 	diffc = diff --cached
+[user]
+	email = nielslensink@gmail.com
+	name = Niels Lensink
+[core]
+	excludesfile = /home/snelis/.gitignore

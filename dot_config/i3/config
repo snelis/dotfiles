@@ -68,9 +68,9 @@ bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec mate-terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; killall compton; compton -b; exec notify-send 'restart dunst/compton'"
+bindsym $mod+t exec --no-startup-id pkill picom
+bindsym $mod+Ctrl+t exec --no-startup-id picom -b
+bindsym $mod+Shift+d --release exec "killall dunst; killall picom; picom -b; exec notify-send 'restart dunst/picom'"
 bindsym Print exec --no-startup-id "mate-screenshot -i"
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
@@ -197,14 +197,14 @@ bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 # assign [class="Thunderbird"] $ws1
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
-for_window [class="Spotify"] move to workspace $ws0
+for_window [class="spotify"] move to workspace $ws0
 for_window [class="Signal"] move to workspace $ws9
 for_window [class="discord"] move to workspace $ws9
 
 # Open specific applications in floating mode
+for_window [class="Jitsi Meet"] floating enable border pixel 1
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="fpakman"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
@@ -229,6 +229,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="Chromium"] border pixel 1
 
 # switch to workspace with urgent window automatically
 #for_window [urgent=latest] focus
@@ -286,7 +287,7 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -300,6 +301,8 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id autorandr -c
+exec_always --no-startup-id nitrogen --restore
+exec_always --no-startup-id xset r rate 200
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -345,19 +348,21 @@ bar {
 	bindsym button4 nop
 	bindsym button5 nop
 #   font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+	strip_workspace_numbers no
+
+    separator_symbol " | "
 
     colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
+        background #000000
+        statusline $term_foreground
+        separator  $term_color8
 
 #                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
+        focused_workspace  #F9FAF9 $term_color4 #000000
+        active_workspace   #595B5B #888888 #000000
         inactive_workspace #595B5B #222D31 #EEE8D5
         binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+        urgent_workspace   #16a085 $term_color1 #FFFFFF
     }
 }
 
@@ -366,7 +371,8 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  client.focused          #556064 #556064 #80FFF9 #FDF6E3 #a6a6a6
+  # client.focused #555555 #555555 #ffffff #2e9ef4     #00ff00
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2

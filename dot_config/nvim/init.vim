@@ -6,7 +6,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'fatih/vim-go'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
@@ -31,6 +31,10 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'martinda/jenkinsfile-vim-syntax'
 Plug 'sheerun/vim-polyglot'
+Plug 'ludovicchabant/vim-gutentags'
+
+" Tags
+Plug 'majutsushi/tagbar'
 
 " vim coverage
 Plug 'google/vim-maktaba'
@@ -39,6 +43,7 @@ Plug 'google/vim-glaive'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
 
 " Initialize plugin system
 call plug#end()
@@ -59,7 +64,7 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 1
 
 let g:ag_working_path_mode="r"
@@ -67,7 +72,6 @@ set scrolloff=5
 
 let g:python_host_prog = 'python'
 let g:python3_host_prog = 'python'
-" let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
 
 " For javascript we need to add a space after // 
 let NERDSpaceDelims=1
@@ -78,8 +82,9 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>r :Tags<CR>
+nmap <Leader>t :Tags<CR>
+" nmap <Leader>r :Tags<CR>
+map <leader>f :Files<CR>
 
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
@@ -91,6 +96,7 @@ inoremap <F12> <C-o>:syntax sync fromstart<CR>
 set nobackup
 set nowb
 set noswapfile
+set termguicolors
 
 set undodir=~/.local/share/nvim/undodir
 set undofile
@@ -121,6 +127,7 @@ set splitbelow
 set splitright
 set autoread
 set noswapfile
+set previewheight=20
 
 " Emmet
 let g:user_emmet_expandabbr_key='<C-a>'
@@ -147,24 +154,26 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_sign_warning = '⚠'" Enable integration with airline.
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_python_black_executable = "/home/snelis/.pyenv/versions/home/bin/black"
+let g:ale_python_black_options='--skip-string-normalization '
+let g:ale_python_isort_executable = "/home/snelis/.pyenv/versions/home/bin/isort"
 map <F2> :ALEFix<CR>
-map <leader>f :ALEFix<CR>
 map <F5> :noh<CR>
 map <F6> :NERDTreeFind<CR>
+nmap <F8> :TagbarToggle<CR>
 
 
 " theme
-" let g:solarized_visibility = "high"
-" let g:solarized_contrast = "high"
 set t_Co=256
-let g:solarized_termcolors=256
 set background=dark
-" colorscheme solarized
-" colorscheme wal
-let g:gruvbox_contrast_dark="hard"
-let g:gruvbox_contrast_light="hard"
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme base16-default-dark
 map <Leader>b :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 " hi Normal ctermbg=233
 " hi LineNr ctermbg=234
 " hi Normal guibg=#192224 guisp=#192224 gui=NONE ctermfg=196 ctermbg=235 cterm=NONE
@@ -177,13 +186,14 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 map <F3> :NERDTreeToggle<CR>
 
 " vim airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'powerlineish'
 
 let g:jedi#goto_command = "<leader>gd"
 let g:tmux_navigator_save_on_switch = 2
@@ -192,7 +202,7 @@ let g:tmux_navigator_save_on_switch = 2
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 set cursorline
-hi CursorLine cterm=NONE ctermbg=234 ctermfg=NONE
+" hi CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
 " hi CursorLineNr cterm=NONE ctermfg=red
 
 
@@ -207,7 +217,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -305,8 +315,8 @@ omap af <Plug>(coc-funcobj-a)
 " Use <TAB> for selections ranges.
 " NOTE: Requires 'textDocument/selectionRange' support from the language server.
 " coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+" nmap <silent> <TAB> <Plug>(coc-range-select)
+" xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
