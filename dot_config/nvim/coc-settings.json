@@ -10,6 +10,6 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": false,
     "python.linting.enabled": false,
+    "list.maxPreviewHeight": 25,
     "python.jediPath": "~/.pyenv/versions/home/lib/python3.8/site-packages",
-    "python.pythonPath": "~/.pyenv/shims/python"
 }

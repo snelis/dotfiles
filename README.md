@@ -46,21 +46,13 @@ yay --noconfirm -S \
   mate-utils \
   docker \
   docker-compose \
-  docker-machine-driver-kvm2 \
   pyenv \
   pyenv-virtualenv \
   postgresql-libs \
   py3status \
   netcat \
   neofetch \
-  woeusb \
-  nodejs \
-  ctags \
-  npm \
-  libvirt \
-  qemu \
-  ebtables \
-  direnv
+  woeusb
 ```
 
 ## py3status modules
@@ -130,14 +122,4 @@ chezmoi add ~/.config/compton.conf
 chezmoi add ~/.profile
 chezmoi add ~/.tmux.conf
 chezmoi add ~/.zshrc
-```
-
-```
-pip install black isort
-nvim "+CocInstall coc-json" "+CocInstall coc-python" +qa
-
-```
-
-```
-sudo usermod -a -G libvirt $(whoami)
 ```

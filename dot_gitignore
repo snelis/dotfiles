@@ -1,2 +1,8 @@
-/.python-version
+.python-version
+/tags
+.vscode
 docker-compose.override.yml
+.env
+.vim
+src/static
+.envrc

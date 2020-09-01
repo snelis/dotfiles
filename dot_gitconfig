@@ -7,5 +7,8 @@
 [user]
 	email = nielslensink@gmail.com
 	name = Niels Lensink
+	signingkey = 2AF612A984F6ACADA7E34209CF6B898D536E825F
 [core]
 	excludesfile = /home/snelis/.gitignore
+[commit]
+	gpgSign = true
