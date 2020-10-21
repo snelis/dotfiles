@@ -21,3 +21,5 @@ text/csv=freeoffice-planmaker.desktop;
 x-scheme-handler/mailto=userapp-Evolution-T1YPM0.desktop;
 application/x-ole-storage=org.gnome.Evolution.desktop;
 inode/directory=mate-terminal.desktop;
+application/octet-stream=vlc.desktop;
+application/x-x509-ca-cert=typora.desktop;

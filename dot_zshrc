@@ -44,10 +44,10 @@ eval "$(direnv hook zsh)"
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='ag -u -g ""'
 export FZF_DEFAULT_OPTS='--height 50% --border --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'
 export FZF_CTRL_R_OPTS="--no-preview"
-export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND='ag --hidden -g ""'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=1,bg=cyan,bold,underline"
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -56,8 +56,10 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888"
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export PYTHONBREAKPOINT="ipdb.set_trace"
 
 alias vim="nvim"
+alias ssh='TERM=xterm ssh'
 
 # direnv
 # command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"

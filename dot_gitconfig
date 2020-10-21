@@ -12,3 +12,5 @@
 	excludesfile = /home/snelis/.gitignore
 [commit]
 	gpgSign = true
+[pull]
+	ff = only

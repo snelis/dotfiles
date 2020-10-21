@@ -147,6 +147,7 @@ let g:ale_fixers = {
 \   'python': ['black', 'isort'],
 \   'javascript': ['eslint'],
 \   'vue': ['eslint'],
+\   'html': ['prettier'],
 \}
 " let g:ale_javascript_prettier_options = '--single-quote --space-before-function-paren --no-semi'
 
@@ -156,7 +157,7 @@ let g:ale_sign_warning = '⚠'" Enable integration with airline.
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_black_executable = "/home/snelis/.pyenv/versions/home/bin/black"
 let g:ale_python_black_options='--skip-string-normalization '
-let g:ale_python_isort_executable = "/home/snelis/.pyenv/versions/home/bin/isort"
+" let g:ale_python_isort_executable = "isort"
 map <F2> :ALEFix<CR>
 map <F5> :noh<CR>
 map <F6> :NERDTreeFind<CR>
