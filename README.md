@@ -54,7 +54,10 @@ yay --noconfirm -S \
   neofetch \
   woeusb \
   ctags \
-  direnv
+  direnv \
+  ebtables \
+  qemu \
+  virt-manager
 ```
 
 ## py3status modules
