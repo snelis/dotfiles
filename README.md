@@ -53,7 +53,8 @@ yay --noconfirm -S \
   netcat \
   neofetch \
   woeusb \
-  ctags
+  ctags \
+  direnv
 ```
 
 ## py3status modules
