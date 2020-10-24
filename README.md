@@ -52,7 +52,8 @@ yay --noconfirm -S \
   py3status \
   netcat \
   neofetch \
-  woeusb
+  woeusb \
+  ctags
 ```
 
 ## py3status modules
