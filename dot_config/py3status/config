@@ -80,5 +80,7 @@ vpn_status {
     cache_timeout = 1
     check_pid = true
     pidfile = "/sys/class/net/tun0/dev_id"
+    on_click 1 = "exec nmcli connection up ois"
+    on_click 3 = "exec nmcli connection down ois"
 }
 
