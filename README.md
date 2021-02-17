@@ -8,6 +8,11 @@ sudo pacman-mirrors --country Netherlands
 sudo pacman -Syuu yay
 ```
 
+## Keyserver
+```
+echo "keyserver hkp://pool.sks-keyservers.net" > /home/$USER/.gnupg/gpg.conf
+```
+
 ## Datetime
 ```
 sudo timedatectl set-ntp true
