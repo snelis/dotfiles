@@ -1,0 +1,38 @@
+{
+    "list.normalMappings": {
+        "v": "action:vsplit",
+        "x": "action:split"
+    },
+    "list.insertMappings": {
+        "<c-v>": "action:vsplit",
+        "<c-x>": "action:split"
+    },
+    // "python.linting.pylintEnabled": false,
+    // "python.linting.flake8Enabled": false,
+    // "python.linting.enabled": false,
+    // "list.maxPreviewHeight": 25,
+
+    // "python.analysis.typeCheckingMode": "basic",
+    // // "diagnostic.warningSign": "",
+    // // "diagnostic.errorSign": "",
+    // // "diagnostic.infoSign": "",
+    // // "diagnostic.hintSign": "",
+    // // "diagnostic.level": "information",
+    // "diagnostic.showUnused": true,
+    // "python.pythonPath": "python",
+    // // "python.pythonPath": "/home/snelis/.pyenv/shims/python",
+    "python.venvPath": "/home/snelis/.pyenv/versions/",
+    // // "python.linting.enabled": true,
+    // // "python.linting.pylintEnabled": true,
+    // // "python.analysis.extraPaths": ["src", "tests"],
+    "python.analysis.diagnosticSeverityOverrides": {
+       "reportGeneralTypeIssues": "none",
+       // "reportUnusedImport": "warning",
+       // "reportUnusedClass": "warning",
+       // "reportUnusedFunction": "warning",
+       // "reportUnusedVariable": "warning",
+       // "reportOptionalSubscript": "none",
+       // "reportOptionalMemberAccess": "none"
+    },
+    // "coc.preferences.extensionUpdateCheck": "daily"
+}

@@ -1,5 +1,3 @@
-eval "$(pyenv init - zsh)"
-eval "$(pyenv virtualenv-init -)"
 # (cat ~/.config/wal/sequences &)
 source /usr/share/zsh/share/antigen.zsh
 
@@ -7,31 +5,28 @@ source /usr/share/zsh/share/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundles <<EOBUNDLES
-
 git
 pip
 docker
-autojump
 command-not-found
 
 pip
-pyenv
 python
 virtualenv
-kubectl
-oc
 
 tmux
 extract
 wd
 docker
 
-martinlindhe/base16-iterm2
-chriskempson/base16-shell
+# martinlindhe/base16-iterm2
+# chriskempson/base16-shell
 
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
+
+agkozak/zsh-z
 EOBUNDLES
 
 # Load the theme.
@@ -44,24 +39,56 @@ eval "$(direnv hook zsh)"
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-export FZF_DEFAULT_COMMAND='ag -u -g ""'
+# export FZF_DEFAULT_COMMAND='ag -u -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git/" --follow --no-ignore-vcs'
 export FZF_DEFAULT_OPTS='--height 50% --border --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'
 export FZF_CTRL_R_OPTS="--no-preview"
-export FZF_CTRL_T_COMMAND='ag --hidden -g ""'
+export FZF_CTRL_T_COMMAND='rg --ignore .git -g ""'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=1,bg=cyan,bold,underline"
 export EDITOR='nvim'
 export VISUAL='nvim'
 export VIRTUAL_ENV_DISABLE_PROMPT=
-export COMPOSE_DOCKER_CLI_BUILD=1 
-export DOCKER_BUILDKIT=1
+# export COMPOSE_DOCKER_CLI_BUILD=1 
+# export DOCKER_BUILDKIT=1
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888"
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export PYTHONBREAKPOINT="ipdb.set_trace"
 
+export PATH=~/.npm-global/bin:$PATH
+
 alias vim="nvim"
 alias ssh='TERM=xterm ssh'
 
+bumpminor () {
+    git fetch
+    echo 'latest version:'
+    git tag -l -n | sort -V | tail -n 1
+    tag=$(git tag -l | sort -V | tail -n1 | awk -F. '{$NF = $NF + 1;} 1' | sed 's/ /./g')
+    git tag -a -m 'Maintenance update' $tag origin/master
+    echo 'new version:'
+    git tag -l -n | sort -V | tail -n 1
+}
+
+pyclean () {
+    find . -regex '^.*\(__pycache__\|\.py[co]\)$' -delete
+}
+
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+# source <(kubectl completion zsh)
+source <(oc completion zsh)
+
+eval "$(starship init zsh)"
+# eval "$(pyenv init --path)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init - zsh)"
+
 # direnv
 # command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
+autoload -U +X bashcompinit && bashcompinit
 
 [[ -z "$TMUX"  ]] && { exec tmux new-session && exit;}

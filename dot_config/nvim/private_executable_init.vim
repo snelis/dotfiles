@@ -4,8 +4,8 @@ filetype off
 "set rtp+=~/.vim/bundle/Vundle.vim
 
 call plug#begin('~/.vim/plugged')
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'fatih/vim-go'
+Plug 'Yggdroot/indentLine'
 " Plug 'davidhalter/jedi-vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'VundleVim/Vundle.vim'
@@ -52,26 +52,24 @@ call glaive#Install()
 Glaive coverage plugin[mappings]
 Glaive coverage uncovered_text='▴▴'
 Glaive coverage covered_ctermbg='darkgreen'
-nnoremap <unique> <script> <silent> <Leader>ct :CoverageToggle<cr>
-nnoremap <unique> <script> <silent> <F9> :CoverageToggle<cr>
 
 " let g:deoplete#enable_at_startup = 1
 " let g:jedi#completions_enabled = 0
 
 filetype plugin indent on
+let g:vim_json_conceal=0
+
+let g:indentLine_char_list = ['¦', '·']
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 1
-
 let g:ag_working_path_mode="r"
 set scrolloff=5
 
-let g:python_host_prog = 'python'
-let g:python3_host_prog = 'python'
+" let g:python_host_prog = 'python'
+" let g:python3_host_prog = 'python'
 
 " For javascript we need to add a space after // 
 let NERDSpaceDelims=1
@@ -85,6 +83,9 @@ nmap ; :Buffers<CR>
 nmap <Leader>t :Tags<CR>
 " nmap <Leader>r :Tags<CR>
 map <leader>f :Files<CR>
+map <leader>f :Files<CR>
+map <leader>f :Files<CR>
+map <leader>s :Ag<CR>
 
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
@@ -103,6 +104,11 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer
 set diffopt+=vertical
+
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gdiffsplit!<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -145,42 +151,45 @@ let g:ale_completion_enabled = 1
 let g:javascript_jshint_executable = 'foobar'
 let g:ale_fixers = {
 \   'python': ['black', 'isort'],
-\   'javascript': ['eslint'],
-\   'vue': ['eslint'],
+\   'javascript': ['prettier'],
+\   'json': ['prettier'],
+\   'vue': ['prettier'],
 \   'html': ['prettier'],
+\   'htmldjango': ['prettier'],
+\   'css': ['prettier'],
+\   'yaml': ['prettier'],
+\   'helm': ['prettier'],
 \}
 " let g:ale_javascript_prettier_options = '--single-quote --space-before-function-paren --no-semi'
 
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_sign_warning = '⚠'" Enable integration with airline.
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_python_black_executable = "/home/snelis/.pyenv/versions/home/bin/black"
+let g:ale_echo_msg_format = 'ALE [%linter%] %s [%severity%]'
 let g:ale_python_black_options='--skip-string-normalization '
+let g:ale_python_isort_options='--profile black'
 " let g:ale_python_isort_executable = "isort"
 map <F2> :ALEFix<CR>
-map <F5> :noh<CR>
-map <F6> :NERDTreeFind<CR>
+nmap <F5> :noh<CR>
+nmap <F6> :NERDTreeFind<CR>
 nmap <F8> :TagbarToggle<CR>
 
 
 " theme
 set t_Co=256
-set background=dark
 " colorscheme gruvbox
 colorscheme base16-default-dark
-map <Leader>b :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-" hi Normal ctermbg=233
-" hi LineNr ctermbg=234
-" hi Normal guibg=#192224 guisp=#192224 gui=NONE ctermfg=196 ctermbg=235 cterm=NONE
 
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
+
+hi Normal guibg=NONE ctermbg=NONE
+highlight clear SignColumn
+highlight clear LineNr guifg=#555555
+highlight LineNr guifg=#666666
 
 " Nerdtree
 autocmd StdinReadPre * let s:std_in=1
@@ -201,12 +210,9 @@ let g:tmux_navigator_save_on_switch = 2
 
 " filetypes
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType htlm setlocal ts=2 sts=2 sw=2 expandtab
 
 set cursorline
-" hi CursorLine cterm=NONE ctermbg=233 ctermfg=NONE
-" hi CursorLineNr cterm=NONE ctermfg=red
-
-
 
 " coc.nvim
 " ==============================================
@@ -251,7 +257,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 if has('patch8.1.1068')
-  " Use `complete_info` if your (Neo)Vim version supports it.
+  " " Use `complete_info` if your (Neo)Vim version supports it.
   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -283,6 +289,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>as <Plug>(coc-codeaction-selected)
+
 
 " Formatting selected code.
 " xmap <leader>f  <Plug>(coc-format-selected)
@@ -290,16 +298,16 @@ nmap <leader>rn <Plug>(coc-rename)
 
 augroup mygroup
   autocmd!
-  " Setup formatexpr specified filetype(s).
+  " " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
+  " " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)

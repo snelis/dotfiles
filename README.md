@@ -22,47 +22,63 @@ sudo timedatectl set-local-rtc 0
 ## Apps i like, mind the `--noconfirm`
 ```
 yay --noconfirm -S \
-  rofi \
-  spotify \
-  chromium \
-  imagewriter \
-  mate-terminal \
-  gnome-terminal \
-  chezmoi \
-  zsh \
-  antigen \
-  neovim \
-  neovim-plug \
-  tmux \
-  bat \
-  numlockx \
-  python-pip \
-  the_silver_searcher \
-  xclip \
-  autojump \
-  gnome-keyring \
-  seahorse \
-  playerctl \
-  xorg-xbacklight \
-  xorg-xwininfo \
-  signal-desktop \
-  autorandr \
-  discord \
-  mate-utils \
-  docker \
-  docker-compose \
-  pyenv \
-  pyenv-virtualenv \
-  postgresql-libs \
-  py3status \
-  netcat \
-  neofetch \
-  woeusb \
-  ctags \
-  direnv \
-  ebtables \
-  qemu \
-  virt-manager
+    rofi \
+    spotify \
+    chromium \
+    imagewriter \
+    mate-terminal \
+    gnome-terminal \
+    chezmoi \
+    zsh \
+    antigen \
+    neovim \
+    neovim-plug \
+    tmux \
+    bat \
+    numlockx \
+    python-pip \
+    gobject-introspection \
+    the_silver_searcher \
+    xclip \
+    autojump \
+    gnome-keyring \
+    seahorse \
+    playerctl \
+    xorg-xbacklight \
+    xorg-xwininfo \
+    signal-desktop \
+    autorandr \
+    discord \
+    mate-utils \
+    docker \
+    docker-compose \
+    pyenv \
+    pyenv-virtualenv \
+    postgresql-libs \
+    py3status \
+    netcat \
+    neofetch \
+    woeusb \
+    ctags \
+    direnv \
+    ebtables \
+    qemu \
+    virt-manager \
+    stern-bin \
+    evolution \
+    openvpn \
+    github-cli \
+    kubectl \
+    origin-client \
+    npm \ 
+    noto-fonts-emoji \
+    prettier
+```
+
+```
+pyenv install 3.8.5
+pyenv global 3.8.5
+pyenv shell 3.8.5
 ```
 
 ## py3status modules
@@ -70,8 +86,37 @@ yay --noconfirm -S \
 pip install --user \
     pydbus \
     tzlocal \
-    pytz
+    pytz \
+    black \
+    isort \
+    jedi \
+    PyGObject \
+    dbus-python
+
+
 ```
+## Global pip packages
+
+```bash
+pip install 
+    isort \
+    black \
+    ipython \
+    pip-tools \
+    kafka-python \
+    ipdb \
+    jedi \
+    requests \
+    cffi \
+    certifi \
+    tzlocal \
+    py3status \
+    pydbus \
+    pygobject \
+    dbus-python
+```
+
+
 
 ## Configure the monitors
 ```
