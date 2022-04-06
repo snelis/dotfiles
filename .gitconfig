@@ -1,0 +1,39 @@
+[alias]
+	co = checkout
+    c = "!git branch | fzf | cut -c3- | xargs -o git checkout"
+	br = branch
+	ci = commit
+	st = status
+	diffc = diff --cached
+    discard = checkout --
+    fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+    l = "!git --no-pager log --pretty=format:'%C(yellow)%h%C(cyan)%x09%an%Creset%x09%C(magenta)%ar%x09%Creset%s' -20"
+    lg1 = log --graph --abbrev-commit --decorate --oneline
+    lga = log --graph --abbrev-commit --decorate --oneline --all
+    lg = !"git lg1"
+[pager]
+  diff = diff-so-fancy | less --tabs=4 -RFX
+  show = diff-so-fancy | less --tabs=4 -RFX
+[user]
+	email = nielslensink@gmail.com
+	name = Niels Lensink
+	signingkey = 2AF612A984F6ACADA7E34209CF6B898D536E825F
+[core]
+	excludesfile = /home/snelis/.gitignore
+[commit]
+	gpgSign = true
+[pull]
+	ff = only
+
+[merge]
+  tool = vimdiff
+[mergetool]
+  prompt = true
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool]
+  prompt = false
+[diff]
+  tool = vimdiff
+[rebase]
+	autosquash = true
