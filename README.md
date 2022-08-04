@@ -24,8 +24,6 @@ sudo timedatectl set-local-rtc 0
 yay --noconfirm -S \
     rofi \
     spotify \
-    chromium \
-    imagewriter \
     mate-terminal \
     gnome-terminal \
     chezmoi \
