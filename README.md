@@ -71,7 +71,9 @@ yay --noconfirm -S \
     evolution \
     github-cli \
     kubectl \
-    npm 
+    npm \
+    starship \
+    ripgrep
 ```
 
 ```

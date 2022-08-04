@@ -18,7 +18,6 @@ tmux
 extract
 wd
 docker
-kubectl
 
 # martinlindhe/base16-iterm2
 # chriskempson/base16-shell
@@ -91,7 +90,6 @@ autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
 source <(kubectl completion zsh)
-source <(oc completion zsh)
 
 
 # direnv
