@@ -64,13 +64,10 @@ yay --noconfirm -S \
     virt-manager \
     stern-bin \
     evolution \
-    openvpn \
     github-cli \
     kubectl \
     origin-client \
-    npm \ 
-    noto-fonts-emoji \
-    prettier
+    npm 
 ```
 
 ```
