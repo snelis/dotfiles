@@ -75,14 +75,13 @@ yay --noconfirm -S \
 ```
 
 ```
-pyenv install 3.8.5
-pyenv global 3.8.5
-pyenv shell 3.8.5
+pyenv install 3.10.5
+pyenv global 3.10.5
 ```
 
 ## py3status modules
 ```
-pip install --user \
+pip install \
     pydbus \
     tzlocal \
     pytz \
@@ -97,7 +96,7 @@ pip install --user \
 ## Global pip packages
 
 ```bash
-pip install 
+pip install \
     isort \
     black \
     ipython \
