@@ -21,7 +21,12 @@ sudo timedatectl set-local-rtc 0
 
 ## Apps i like, mind the `--noconfirm`
 ```
+yay --noconfirm -S iptables-nft
+```
+
+```
 yay --noconfirm -S \
+    iptables-nft \
     rofi \
     spotify \
     mate-terminal \
@@ -54,7 +59,7 @@ yay --noconfirm -S \
     pyenv-virtualenv \
     postgresql-libs \
     py3status \
-    netcat \
+    gnu-netcat \
     neofetch \
     woeusb \
     ctags \
@@ -66,7 +71,6 @@ yay --noconfirm -S \
     evolution \
     github-cli \
     kubectl \
-    origin-client \
     npm 
 ```
 
