@@ -73,7 +73,8 @@ yay --noconfirm -S \
     kubectl \
     npm \
     starship \
-    ripgrep
+    ripgrep \
+    imwheel
 ```
 
 ```
