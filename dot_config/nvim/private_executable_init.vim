@@ -219,6 +219,7 @@ set cursorline
 " ==============================================
 
 
+let g:coc_disable_transparent_cursor = 1
 let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-snippets']
 
 " TextEdit might fail if hidden is not set.
