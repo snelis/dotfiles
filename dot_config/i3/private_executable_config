@@ -292,7 +292,6 @@ mode "resize" {
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id autorandr -c
 exec --no-startup-id nm-applet
-exec_always --no-startup-id imwheel -b "45" --kill
 exec --no-startup-id blueman-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id nitrogen --restore;
