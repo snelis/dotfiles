@@ -370,3 +370,11 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+" Mappings
+" nnoremap K 5<up>
+nnoremap J 5<down>
+nnoremap H 0
+nnoremap L $
+
