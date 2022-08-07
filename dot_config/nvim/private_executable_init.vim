@@ -216,6 +216,10 @@ set cursorline
 
 " coc.nvim
 " ==============================================
+
+
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pyright']
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
