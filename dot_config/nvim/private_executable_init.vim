@@ -32,6 +32,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'martinda/jenkinsfile-vim-syntax'
 Plug 'sheerun/vim-polyglot'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'honza/vim-snippets'
 
 " Tags
 Plug 'majutsushi/tagbar'
@@ -218,7 +219,7 @@ set cursorline
 " ==============================================
 
 
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pyright']
+let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-snippets']
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -278,14 +279,22 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call ShowDocumentation()<CR>
+
+" Mappings
+nnoremap K 5<up>
+nnoremap J 5<down>
+nnoremap H 0
+nnoremap L $
+
+
+" show documentation in preview window.
+nnoremap <silent> M :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    call feedkeys('K', 'in')
+    call feedkeys('M', 'in')
   endif
 endfunction
 
@@ -374,11 +383,3 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-
-" Mappings
-" nnoremap K 5<up>
-nnoremap J 5<down>
-nnoremap H 0
-nnoremap L $
-
