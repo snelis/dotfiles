@@ -40,7 +40,7 @@ eval "$(direnv hook zsh)"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 # export FZF_DEFAULT_COMMAND='ag -u -g ""'
-export FZF_DEFAULT_COMMAND='rg --files --hidden -g "\!.git/" --follow --no-ignore-vcs'
+export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git/" --follow --no-ignore-vcs'
 export FZF_DEFAULT_OPTS='--height 50% --border --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'
 export FZF_CTRL_R_OPTS="--no-preview"
 export FZF_CTRL_T_COMMAND='rg --files'
