@@ -10,7 +10,8 @@ sudo pacman -Syuu yay
 
 ## Keyserver
 ```
-echo "keyserver hkp://pool.sks-keyservers.net" > /home/$USER/.gnupg/gpg.conf
+echo "keyserver keyserver.ubuntu.com" > /home/$USER/.gnupg/gpg.conf
+echo "keyserver keyserver.ubuntu.com" >> /etc/pacman.d/gnupg/gpg.conf
 ```
 
 ## Datetime
@@ -21,14 +22,14 @@ sudo timedatectl set-local-rtc 0
 
 ## Apps i like, mind the `--noconfirm`
 ```
-yay --noconfirm -S iptables-nft
+yay -Rs --noconfirm palemoon-bin
+yay -S iptables-nft
 ```
+
 
 ```
 yay --noconfirm -S \
-    iptables-nft \
     rofi \
-    spotify \
     mate-terminal \
     gnome-terminal \
     chezmoi \
@@ -74,7 +75,10 @@ yay --noconfirm -S \
     npm \
     starship \
     ripgrep \
-    imwheel
+    google-chrome \ 
+    firefox-developer-edition \
+    1password \
+    light-locker
 ```
 
 ```
@@ -140,13 +144,18 @@ install_pulse
 ```
 systemctl enable --now docker.service
 sudo usermod -a -G docker $USER
-newgroup docker
+newgrp docker
 docker version
 ```
 
 ## kernel options for my Dell XPS 9560
 ```
 pcie_port_pm=off acpi_rev_override=1 acpi_osi=Linux acpi_osi=! "acpi_osi=Windows 2009" modprobe.blacklist=nouveau,nvidia nouveau.modeset=0 acpi_backlight=none intel_iommu=on iommu=pt overlay.metacopy=N
+```
+
+## Dell XPS 9320 audio fix /etc/modprobe.d/i915.conf
+```
+options i915 enable_guc=3
 ```
 
 ## Change shell to zsh
