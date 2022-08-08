@@ -58,6 +58,7 @@ export PATH=~/.npm-global/bin:$PATH
 
 alias vim="nvim"
 alias ssh='TERM=xterm ssh'
+alias startx='ssh-agent startx'
 
 bumpminor () {
     git fetch
@@ -95,6 +96,14 @@ source <(kubectl completion zsh)
 # direnv
 # command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
 autoload -U +X bashcompinit && bashcompinit
+
+if [ "$TERM" = "linux" ]; then
+    _SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'
+    for i in $(sed -n "$_SEDCMD" $HOME/.Xresources | awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}'); do
+        echo -en "$i"
+    done
+    clear
+fi
 
 # [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 [[ ! -z "$DISPLAY" && -z "$TMUX" ]] && { exec tmux new-session && exit;}

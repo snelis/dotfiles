@@ -34,5 +34,6 @@
        // "reportOptionalSubscript": "none",
        // "reportOptionalMemberAccess": "none"
     },
+    "coc.preferences.extensionUpdateCheck": "daily",
     // "coc.preferences.extensionUpdateCheck": "daily"
 }
