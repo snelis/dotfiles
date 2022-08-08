@@ -282,10 +282,10 @@ nmap <silent> gr <Plug>(coc-references)
 
 
 " Mappings
-nnoremap K 5<up>
-nnoremap J 5<down>
-nnoremap H 0
-nnoremap L $
+noremap K 5<up>
+noremap J 5<down>
+noremap H 0
+noremap L $
 
 
 " show documentation in preview window.
