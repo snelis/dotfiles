@@ -82,39 +82,29 @@ pyenv install 3.10.5
 pyenv global 3.10.5
 ```
 
-## py3status modules
-```
-pip install \
-    pydbus \
-    tzlocal \
-    pytz \
-    black \
-    isort \
-    jedi \
-    PyGObject \
-    dbus-python
-
-
-```
 ## Global pip packages
 
 ```bash
 pip install \
-    isort \
+    PyGObject \
     black \
-    ipython \
-    pip-tools \
-    kafka-python \
-    ipdb \
-    jedi \
-    requests \
-    cffi \
     certifi \
-    tzlocal \
+    cffi \
+    dbus-python \
+    ipdb \
+    ipython \
+    isort \
+    jedi \
+    kafka-python \
+    pip-tools \
     py3status \
     pydbus \
     pygobject \
-    dbus-python
+    pynvim \
+    neovim \
+    pytz \
+    requests \
+    tzlocal 
 ```
 
 
