@@ -80,7 +80,6 @@ yay --noconfirm -S \
     1password \
     light-locker \
     noto-fonts-emoji \
-    i3lock-fancy-git \
     xss-lock
 ```
 
