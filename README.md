@@ -78,7 +78,10 @@ yay --noconfirm -S \
     google-chrome \ 
     firefox-developer-edition \
     1password \
-    light-locker
+    light-locker \
+    noto-fonts-emoji \
+    i3lock-fancy-git \
+    xss-lock
 ```
 
 ```
