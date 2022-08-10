@@ -32,7 +32,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'martinda/jenkinsfile-vim-syntax'
 Plug 'sheerun/vim-polyglot'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'honza/vim-snippets'
 
 " Tags
 Plug 'majutsushi/tagbar'
@@ -77,7 +76,7 @@ set scrolloff=5
 " For javascript we need to add a space after // 
 let NERDSpaceDelims=1
 
-let g:EditorConfig_core_mode = 'external_command'
+" let g:EditorConfig_core_mode = 'external_command'
 
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -220,7 +219,7 @@ set cursorline
 
 
 let g:coc_disable_transparent_cursor = 1
-let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-snippets']
+let g:coc_global_extensions = ['coc-json', 'coc-pyright']
 
 " TextEdit might fail if hidden is not set.
 set hidden
