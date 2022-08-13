@@ -289,7 +289,7 @@ exec_always --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id ssh-agent
-# exec --no-startup-id picom -b
+exec_always --no-startup-id picom -b
 # exec_always --no-startup-id sbxkb
 # exec_always --no-startup-id start_conky_grey
 exec_always --no-startup-id killall xautolock; xautolock -time 10 -locker blurlock
@@ -304,7 +304,7 @@ exec_always --no-startup-id xset r rate 200
 exec_always --no-startup-id xset m 0 0
 
 # Wallpaper restore
-exec_always --no-startup-id sleep 1; nitrogen --restore
+exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id sleep 5; nitrogen --restore
 exec_always --no-startup-id sleep 10; nitrogen --restore
 
@@ -316,7 +316,7 @@ exec_always --no-startup-id sleep 10; nitrogen --restore
 # exec --no-startup-id start-pulseaudio-x11
 #
 # Restart pipewire as its not working shortly after boot
-exec --no-startup-id sleep 5; systemctl --user restart pipewire
+# exec --no-startup-id sleep 5; systemctl --user restart pipewire
 exec_always --no-startup-id killall pa-applet; pa-applet
 
 # Color palette used for the terminal ( ~/.Xresources file )
