@@ -210,6 +210,7 @@ let g:tmux_navigator_save_on_switch = 2
 
 " filetypes
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 ai
+autocmd FileType helm setlocal ts=2 sts=2 sw=2 ai
 autocmd FileType html setlocal ts=2 sts=2 sw=2 ai
 
 set cursorline
@@ -285,16 +286,18 @@ noremap K 5<up>
 noremap J 5<down>
 noremap H 0
 noremap L $
+noremap mj :join<cr>
 
 
 " show documentation in preview window.
-nnoremap <silent> M :call ShowDocumentation()<CR>
+nnoremap <silent> ? :call ShowDocumentation()<CR>
+nnoremap <silent> mk :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    call feedkeys('M', 'in')
+    call feedkeys('?', 'in')
   endif
 endfunction
 
