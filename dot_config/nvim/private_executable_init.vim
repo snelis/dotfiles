@@ -73,7 +73,7 @@ let g:ag_working_path_mode="r"
 set scrolloff=5
 
 " let g:python_host_prog = 'python'
-" let g:python3_host_prog = 'python'
+let g:python3_host_prog = '/home/snelis/.pyenv/versions/3.10.5/bin/python'
 
 " For javascript we need to add a space after // 
 let NERDSpaceDelims=1
