@@ -25,15 +25,11 @@
     // // "python.linting.enabled": true,
     // // "python.linting.pylintEnabled": true,
     // // "python.analysis.extraPaths": ["src", "tests"],
-    "python.analysis.diagnosticSeverityOverrides": {
-       "reportGeneralTypeIssues": "none",
-       // "reportUnusedImport": "warning",
-       // "reportUnusedClass": "warning",
-       // "reportUnusedFunction": "warning",
-       // "reportUnusedVariable": "warning",
-       // "reportOptionalSubscript": "none",
-       // "reportOptionalMemberAccess": "none"
-    },
     "coc.preferences.extensionUpdateCheck": "daily",
+    "pyright.inlayHints.functionReturnTypes": false,
+    "pyright.inlayHints.variableTypes": false,
     // "coc.preferences.extensionUpdateCheck": "daily"
+    "python.analysis.diagnosticSeverityOverrides": {
+       "reportGeneralTypeIssues": "none"
+    }
 }

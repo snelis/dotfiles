@@ -47,6 +47,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
 
+Plug 'ryanoasis/vim-devicons'
+
 " Initialize plugin system
 call plug#end()
 call glaive#Install()
