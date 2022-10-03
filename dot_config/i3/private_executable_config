@@ -60,7 +60,7 @@ bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec mate-terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill picom
+bindsym $mod+t exec --no-startup-id killall picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; killall picom; sleep 1; picom -b; exec notify-send 'restart dunst/picom'"
 bindsym Print exec --no-startup-id "mate-screenshot -i"
@@ -308,7 +308,7 @@ exec_always --no-startup-id sleep 5; nitrogen --restore
 exec_always --no-startup-id sleep 10; nitrogen --restore
 
 exec_always --no-startup-id killall pa-applet; pa-applet
-exec_always --no-startup-id sleep 5; picom -b
+exec_always --no-startup-id sleep 5; killall picom; picom -b
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
