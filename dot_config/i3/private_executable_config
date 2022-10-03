@@ -289,7 +289,6 @@ exec_always --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id ssh-agent
-exec_always --no-startup-id picom -b
 # exec_always --no-startup-id sbxkb
 # exec_always --no-startup-id start_conky_grey
 # exec_always --no-startup-id killall xautolock; xautolock -time 10 -locker blurlock
@@ -308,16 +307,8 @@ exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id sleep 5; nitrogen --restore
 exec_always --no-startup-id sleep 10; nitrogen --restore
 
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
-##bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-# exec --no-startup-id start-pulseaudio-x11
-#
-# Restart pipewire as its not working shortly after boot
-# exec --no-startup-id sleep 5; systemctl --user restart pipewire
 exec_always --no-startup-id killall pa-applet; pa-applet
+exec_always --no-startup-id sleep 5; picom -b
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
