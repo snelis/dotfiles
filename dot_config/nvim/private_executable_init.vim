@@ -210,6 +210,8 @@ let g:airline_theme = 'powerlineish'
 let g:jedi#goto_command = "<leader>gd"
 let g:tmux_navigator_save_on_switch = 2
 
+let g:vim_markdown_conceal = 0
+
 " filetypes
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 ai
 autocmd FileType helm setlocal ts=2 sts=2 sw=2 ai
