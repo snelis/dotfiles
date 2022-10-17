@@ -45,8 +45,8 @@ export FZF_DEFAULT_OPTS='--height 50% --border --preview "[[ $(file --mime {}) =
 export FZF_CTRL_R_OPTS="--no-preview"
 export FZF_CTRL_T_COMMAND='rg --files'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=1,bg=cyan,bold,underline"
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='lvim'
+export VISUAL='lvim'
 export VIRTUAL_ENV_DISABLE_PROMPT=
 export COMPOSE_DOCKER_CLI_BUILD=1 
 export DOCKER_BUILDKIT=1
@@ -75,6 +75,13 @@ pyclean () {
     find . -regex '^.*\(__pycache__\|\.py[co]\)$' -delete
 }
 
+venv () {
+    pyenv virtualenv 3.10.6 $(basename `pwd`)
+    echo "export PYENV_VERSION=$(basename `pwd`)" >> .envrc
+    awk -i inplace '!seen[$0]++' .envrc; 
+    direnv allow
+}
+
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
@@ -84,9 +91,9 @@ eval "$(starship init zsh)"
 # eval "$(pyenv init --path)"
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init - zsh)"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit

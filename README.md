@@ -80,7 +80,15 @@ yay --noconfirm -S \
     1password \
     light-locker \
     noto-fonts-emoji \
-    xss-lock
+    xss-lock \
+    cargo \
+    luarocks \
+    ruby \
+    rubygem \
+    composer \
+    javac \
+    julia \
+    powerline
 ```
 
 ```
