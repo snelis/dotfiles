@@ -1,31 +1,17 @@
 -- *
 -- Settings
 -- *
-local init_custom_options = function()
-  local custom_options = {
-    cmdheight = 1,
-    relativenumber = true, -- Set relative numbered lines
-    scrolloff = 5, -- Determines the number of context lines you would like to see above and below the cursor
-    ignorecase = true, -- Ignore case in search
-    smartcase = true, -- Case-sensitive search when search term contains uppercase characters. Otherwise, case-sensitive search.  timeoutlen = 200, -- Time to wait for a mapped sequence to complete (in milliseconds)
-  }
-
-  for k, v in pairs(custom_options) do
-    vim.opt[k] = v
-  end
-end
-init_custom_options()
 
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "tokyonight"
+vim.opt.cmdheight = 1
+vim.opt.relativenumber = true
 lvim.colorscheme = "catppuccin"
--- to disable icons and use a minimalist setup, uncomment the following
--- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
@@ -58,7 +44,7 @@ lvim.builtin.telescope.defaults.mappings = {
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
-lvim.keys.normal_mode["<F6>"] = "<cmd>let &background=(&background=='light'?'dark':'light') <cr>"
+-- lvim.keys.normal_mode["<F6>"] = "<cmd>let &background=(&background=='light'?'dark':'light') <cr>"
 
 local toggle_theme = function()
   if vim.g.catppuccin_flavour == 'mocha' then
@@ -89,12 +75,10 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
--- lvim.builtin.autopairs.active = false
--- require('nvim-autopairs').disable()
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
--- lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
-lvim.builtin.nvimtree.setup.view.adaptive_size = true
+lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
+lvim.builtin.nvimtree.setup.view.width = 30
 lvim.builtin.nvimtree.setup.open_on_setup = true
 lvim.builtin.nvimtree.setup.open_on_setup_file = true
 lvim.builtin.nvimtree.setup.actions.open_file.window_picker.enable = false
