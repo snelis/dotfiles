@@ -28,7 +28,7 @@ yay -S iptables-nft
 
 
 ```
-yay --noconfirm -S \
+yay --noconfirm -Sy \
     rofi \
     mate-terminal \
     gnome-terminal \
@@ -84,13 +84,17 @@ yay --noconfirm -S \
     cargo \
     luarocks \
     ruby \
-    rubygem \
     composer \
     javac \
     julia \
-    powerline
+    powerline \
+    bob-bin
 ```
 
+```
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+```
 ```
 pyenv install 3.10.5
 pyenv global 3.10.5
