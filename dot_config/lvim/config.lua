@@ -80,7 +80,7 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
 lvim.builtin.nvimtree.setup.view.width = 30
 lvim.builtin.nvimtree.setup.open_on_setup = true
-lvim.builtin.nvimtree.setup.open_on_setup_file = true
+lvim.builtin.nvimtree.setup.open_on_setup_file = false
 lvim.builtin.nvimtree.setup.actions.open_file.window_picker.enable = false
 lvim.builtin.nvimtree.setup.view.mappings.list = {
   { key = "s", action = "vsplit" },
