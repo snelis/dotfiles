@@ -74,7 +74,7 @@ lvim.builtin.alpha.active = true
 -- lvim.transparent_window = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
-lvim.builtin.lualine.options.globalstatus = false
+
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
@@ -89,6 +89,13 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
   { key = "<C-v>", action = "vsplit" },
   { key = "<C-x>", action = "split" },
 }
+
+-- lualine
+local components = require("lvim.core.lualine.components")
+lvim.builtin.lualine.style = "lvim"
+lvim.builtin.lualine.options.globalstatus = false
+lvim.builtin.lualine.sections.lualine_b = { components.filename }
+lvim.builtin.lualine.inactive_sections.lualine_b = { components.filename }
 
 -- line numbers
 lvim.builtin.which_key.mappings["n"] = {
