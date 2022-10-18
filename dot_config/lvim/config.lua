@@ -90,8 +90,6 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
 }
 
 
-vim.g.python3_host_prog = "/home/snelis/.pyenv/versions/snelis/bin/python"
-
 -- line numbers
 lvim.builtin.which_key.mappings["n"] = {
   "<cmd> set nu! <CR>", "toggle line number"
@@ -165,24 +163,21 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   local function buf_set_option(...)
 --     vim.api.nvim_buf_set_option(bufnr, ...)
 --   end
+
 --   --Enable completion triggered by <c-x><c-o>
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
+local pypath = "/home/snelis/.pyenv/versions/snelis/bin/"
+vim.g.python3_host_prog = pypath .. "python"
+
 -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "black", filetypes = { "python" } },
+  { command = "black", extra_args = { "--skip-string-normalization" }, filetypes = { "python" } },
   { command = "isort", extra_args = { "--profile", "black" }, filetypes = { "python" } },
-  {
-    -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-    command = "prettier",
-    ---@usage arguments to pass to the formatter
-    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-    extra_args = { "--print-with", "100" },
-    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    filetypes = { "typescript", "typescriptreact" },
-  },
+  { command = "prettier", extra_args = { "--print-with", "100" },
+    filetypes = { "yaml", "typescript", "typescriptreact" }, },
 }
 
 -- set additional linters
@@ -198,17 +193,28 @@ linters.setup {
   },
 }
 
+
+-- local cmp = require "cmp"
+-- cmp.setup {
+--   sources = {
+--     {
+--       name = "rg"
+--     }
+--   }
+-- }
+table.insert(lvim.builtin.cmp.sources, { name = "rg" })
+
 -- catppuccin
 vim.g.catppuccin_flavour = "mocha"
 
 -- Additional Plugins
 lvim.plugins = {
   { 'LunarVim/Colorschemes' },
-  { "folke/tokyonight.nvim" },
   { "tiagovla/tokyodark.nvim" },
   { "tpope/vim-surround" },
   { 'christoomey/vim-tmux-navigator' },
   { 'catppuccin/nvim' },
+  { 'lukas-reineke/cmp-rg' },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
