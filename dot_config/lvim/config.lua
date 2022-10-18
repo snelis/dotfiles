@@ -74,6 +74,7 @@ lvim.builtin.alpha.active = true
 -- lvim.transparent_window = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
+lvim.builtin.lualine.options.globalstatus = false
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
@@ -88,7 +89,6 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
   { key = "<C-v>", action = "vsplit" },
   { key = "<C-x>", action = "split" },
 }
-
 
 -- line numbers
 lvim.builtin.which_key.mappings["n"] = {
