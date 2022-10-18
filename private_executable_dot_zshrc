@@ -56,7 +56,7 @@ export PYTHONBREAKPOINT="ipdb.set_trace"
 
 export PATH=~/.npm-global/bin:$PATH
 
-alias vim="nvim"
+alias vim="lvim"
 alias ssh='TERM=xterm ssh'
 alias startx='ssh-agent startx'
 alias rgf='rg --files | rg'
