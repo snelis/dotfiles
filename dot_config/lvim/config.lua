@@ -175,6 +175,17 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
+vim.api.nvim_create_autocmd("BufEnter", { pattern = { "**/helm/**/*.yaml" },
+  -- enable wrap mode for json files only
+  callback = function()
+    vim.diagnostic.disable()
+  end
+})
+
+-- if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+--   vim.diagnostic.disable()
+-- end
+
 local pypath = "/home/snelis/.pyenv/versions/snelis/bin/"
 vim.g.python3_host_prog = pypath .. "python"
 
@@ -222,6 +233,7 @@ lvim.plugins = {
   { 'christoomey/vim-tmux-navigator' },
   { 'catppuccin/nvim' },
   { 'lukas-reineke/cmp-rg' },
+  { 'towolf/vim-helm' },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
@@ -230,7 +242,7 @@ lvim.plugins = {
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = { "*.json", "*.jsonc" },
+  pattern = { "*.yaml", "*.json", "*.jsonc" },
   -- enable wrap mode for json files only
   command = "setlocal wrap",
 })
