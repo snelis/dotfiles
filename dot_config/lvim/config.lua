@@ -8,6 +8,7 @@ lvim.format_on_save = true
 vim.opt.cmdheight = 1
 vim.opt.relativenumber = true
 lvim.colorscheme = "catppuccin"
+vim.opt.scrolloff = 10
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -38,6 +39,31 @@ lvim.builtin.telescope.defaults.mappings = {
   n = {
     ["<C-j>"] = actions.move_selection_next,
     ["<C-k>"] = actions.move_selection_previous,
+  },
+}
+
+-- extra
+lvim.builtin.which_key.mappings["z"] = {
+  name = "+Extra",
+  d = {
+    ":lua require('dapui').toggle()<CR>",
+    "Toggle DAP UI",
+  },
+  f = {
+    ":lua require('spectre').open_visual({select_word=true})<CR>",
+    "Find & Replace",
+  },
+  g = {
+    ":lua require('spectre').open_file_search({select_word=true})<CR>",
+    "Find & Replace in current file",
+  },
+  s = {
+    "<cmd>SymbolsOutline<CR>",
+    "Toggle Symbols Outline",
+  },
+  z = {
+    "<cmd>ZenMode<cr>",
+    "Toggle Zen Mode",
   },
 }
 
@@ -73,13 +99,15 @@ lvim.builtin.which_key.mappings["tt"] = {
 lvim.builtin.alpha.active = true
 -- lvim.transparent_window = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
+-- lvim.builtin.notify.active = true
 
+lvim.builtin.dap.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.autopairs.ignored_next_char = [=[$]=]
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
-lvim.builtin.nvimtree.setup.view.width = 30
+lvim.builtin.nvimtree.setup.view.width = 35
 lvim.builtin.nvimtree.setup.open_on_setup = true
 lvim.builtin.nvimtree.setup.open_on_setup_file = false
 lvim.builtin.nvimtree.setup.actions.open_file.window_picker.enable = false
@@ -128,99 +156,6 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
--- generic LSP settings
-
--- -- make sure server will always be installed even if the server is in skipped_servers list
--- lvim.lsp.installer.setup.ensure_installed = {
---     "sumeko_lua",
---     "jsonls",
--- }
--- -- change UI setting of `LspInstallInfo`
--- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
--- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
--- lvim.lsp.installer.setup.ui.border = "rounded"
--- lvim.lsp.installer.setup.ui.keymaps = {
---     uninstall_server = "d",
---     toggle_server_expand = "o",
--- }
-
--- ---@usage disable automatic installation of servers
--- lvim.lsp.installer.setup.automatic_installation = false
-
--- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
--- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
--- local opts = {
---   python = {
---     pythonPath = "/home/snelis/.pyenv/shims/python",
---     venvPath = "/home/snelis/.pyenv/versions/",
---   },
--- } -- check the lspconfig documentation for a list of all possible options
--- require("lvim.lsp.manager").setup("pyright", opts)
-
--- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
--- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
--- lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
---   return server ~= "emmet_ls"
--- end, lvim.lsp.automatic_configuration.skipped_servers)
-
--- -- you can set a custom on_attach function that will be used for all the language servers
--- -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
-
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
-
-vim.api.nvim_create_autocmd("BufEnter", { pattern = { "**/helm/**/*.yaml" },
-  -- enable wrap mode for json files only
-  callback = function()
-    vim.diagnostic.disable()
-  end
-})
-
--- if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
---   vim.diagnostic.disable()
--- end
-
-local pypath = "/home/snelis/.pyenv/versions/snelis/bin/"
-vim.g.python3_host_prog = pypath .. "python"
-
--- set a formatter, this will override the language server formatting capabilities (if it exists)
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-  { command = "black", extra_args = { "--skip-string-normalization" }, filetypes = { "python" } },
-  { command = "isort", extra_args = { "--profile", "black" }, filetypes = { "python" } },
-  { command = "prettier", extra_args = { "--print-with", "100" },
-    filetypes = { "yaml", "typescript", "typescriptreact" }, },
-}
-
--- set additional linters
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  { command = "flake8", filetypes = { "python" } },
-  {
-    -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-    command = "shellcheck",
-    ---@usage arguments to pass to the formatter
-    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-    extra_args = { "--severity", "warning" },
-  },
-}
-
-
--- local cmp = require "cmp"
--- cmp.setup {
---   sources = {
---     {
---       name = "rg"
---     }
---   }
--- }
-table.insert(lvim.builtin.cmp.sources, { name = "rg" })
 
 -- catppuccin
 vim.g.catppuccin_flavour = "mocha"
@@ -235,21 +170,46 @@ lvim.plugins = {
   { 'lukas-reineke/cmp-rg' },
   { 'towolf/vim-helm' },
   {
+    'windwp/nvim-spectre',
+  },
+  {
+    -- a tree like view for symbols
+    "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
+  },
+  {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
+  { 'folke/zen-mode.nvim' },
+  { 'nvim-telescope/telescope-dap.nvim' },
+  { 'mfussenegger/nvim-dap-python' },
+  {
+    'theHamsta/nvim-dap-virtual-text',
+    config = function()
+      require("nvim-dap-virtual-text").setup()
+    end
+  }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
+vim.api.nvim_create_autocmd("BufEnter", { pattern = { "**/helm/**/*.yaml" },
+  callback = function()
+    vim.diagnostic.disable()
+  end
+})
+
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = { "*.yaml", "*.json", "*.jsonc" },
-  -- enable wrap mode for json files only
   command = "setlocal wrap",
 })
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "zsh",
   callback = function()
-    -- let treesitter use bash highlight for zsh files as well
     require("nvim-treesitter.highlight").attach(0, "bash")
   end,
 })
+
+require "dashboard"
+require "debuggers.python"
