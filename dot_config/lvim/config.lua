@@ -180,6 +180,11 @@ lvim.plugins = {
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
+    config = function()
+      require("trouble").setup {
+        height = 20
+      }
+    end
   },
   { 'folke/zen-mode.nvim' },
   { 'nvim-telescope/telescope-dap.nvim' },
