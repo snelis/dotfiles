@@ -1,0 +1,162 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+{
+  // -------------------------------------------------------------------------
+  // Global configuration
+  // -------------------------------------------------------------------------
+  "layer": "top",
+  "position": "bottom",
+  // If height property would be not present, it'd be calculated dynamically
+  "height": 30,
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode"
+    //"sway/window"
+    //"wlr/taskbar"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "custom/spotify",
+    "network",
+    "cpu",
+    "memory",
+    "pulseaudio",
+    //"temperature",
+    "battery",
+    "backlight",
+    "clock#date",
+    "clock#time",
+    "tray"
+  ],
+  // -------------------------------------------------------------------------
+  // Modules
+  // -------------------------------------------------------------------------
+  "custom/spotify": {
+    "exec": "/usr/bin/python ~/.config/waybar/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+  "battery": {
+    "interval": 10,
+    "states": {
+      "warning": 20,
+      "critical": 5
+    },
+    "format": "  {icon}  {capacity}% ({time})",
+    "format-discharging": "{icon}  {capacity}% ({time})",
+    "format-icons": [
+      "🪫",
+      "🔋"
+    ],
+    "tooltip": true
+  },
+  "clock#time": {
+    "interval": 1,
+    "format": "{:%H:%M:%S}",
+    "tooltip": false
+  },
+  "clock#date": {
+    "interval": 10,
+    "format": "  {:%e %b %Y}", // Icon: calendar-alt
+    "tooltip-format": "{:%e %B %Y}"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "  {usage}% ({load})", // Icon: microchip
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "memory": {
+    "interval": 5,
+    "format": "  {used} / {total} GB", // Icon: memory
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "network": {
+    "interval": 5,
+    "format-wifi": "  {essid} ({signalStrength}%) {ipaddr}/{cidr}", // Icon: wifi
+    "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+    "format-disconnected": "⚠  Disconnected",
+    "tooltip-format": "{ifname}: {ipaddr}"
+  },
+  "sway/mode": {
+    "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
+    "tooltip": false
+  },
+  "sway/window": {
+    "format": "{}",
+    "max-length": 120
+  },
+  "sway/workspaces": {
+    "all-outputs": false,
+    "disable-scroll": true,
+    "format": "{icon} {name}",
+    "format-icons": {
+      "1:www": "龜", // Icon: firefox-browser
+      "2:mail": "", // Icon: mail
+      "3:editor": "", // Icon: code
+      "4:terminals": "", // Icon: terminal
+      "5:portal": "", // Icon: terminal
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "pulseaudio": {
+    "scroll-step": 2,
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon}  {volume}%",
+    "format-muted": "🔇 muted",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "🔈",
+        "🔉",
+        "🔉",
+        "🔊"
+      ]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pamixer -t",
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "🔆"
+    ],
+    "on-scroll-up": "brightnessctl s +5%",
+    "on-scroll-down": "brightnessctl s 5%-"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "interval": 5,
+    "format": "{icon}  {temperatureC}°C",
+    "format-icons": [
+      "🌡️"
+    ],
+    "tooltip": true
+  },
+  "tray": {
+    "icon-size": 22,
+    "spacing": 5,
+    "reverse-direction": false
+  }
+}
