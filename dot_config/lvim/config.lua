@@ -12,6 +12,8 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
 lvim.colorscheme = "catppuccin"
+-- lvim.bufhidden = "wipe"
+vim.opt.bufhidden = "delete"
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
@@ -22,6 +24,8 @@ vim.opt.sidescrolloff = 8
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<C-w>"] = ":bd<cr>"
 lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["<leader>rn"] = "<cmd> set rnu! <CR>"
@@ -30,6 +34,7 @@ lvim.builtin.which_key.mappings["n"] = { "<cmd> set nu! <CR>", "toggle line numb
 lvim.keys.normal_mode["<F6>"] = "<cmd>let &background=(&background=='light'?'dark':'light') <cr>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings['c'] = { "<cmd>:bd <CR>", "delete buffer" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
@@ -213,6 +218,7 @@ lvim.plugins = {
   { 'christoomey/vim-tmux-navigator' },
   { 'lukas-reineke/cmp-rg' },
   { "catppuccin/nvim" },
+  { "tpope/vim-surround" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
