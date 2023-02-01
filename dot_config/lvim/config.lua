@@ -16,6 +16,7 @@ lvim.colorscheme = "catppuccin"
 vim.opt.bufhidden = "delete"
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 8
+-- vim.opt.hidden = false
 vim.opt.sidescrolloff = 8
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -24,7 +25,6 @@ vim.opt.sidescrolloff = 8
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-w>"] = ":bd<cr>"
 lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
@@ -32,6 +32,9 @@ lvim.keys.normal_mode["<leader>rn"] = "<cmd> set rnu! <CR>"
 lvim.builtin.which_key.mappings["n"] = { "<cmd> set nu! <CR>", "toggle line number" }
 
 lvim.keys.normal_mode["<F6>"] = "<cmd>let &background=(&background=='light'?'dark':'light') <cr>"
+
+lvim.keys.normal_mode["gv"] = ":vsplit | lua vim.lsp.buf.definition()<CR>"
+lvim.keys.normal_mode["gx"] = ":split | lua vim.lsp.buf.definition()<CR>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings['c'] = { "<cmd>:bd <CR>", "delete buffer" }
@@ -219,6 +222,10 @@ lvim.plugins = {
   { 'lukas-reineke/cmp-rg' },
   { "catppuccin/nvim" },
   { "tpope/vim-surround" },
+  { "sheerun/vim-polyglot" },
+  { "ggandor/leap.nvim", config = function()
+    require('leap').set_default_keymaps()
+  end },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
