@@ -25,7 +25,7 @@ vim.opt.sidescrolloff = 8
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<C-w>"] = ":bd<cr>"
+-- lvim.keys.normal_mode["<C-w>"] = ":bd<cr>"
 lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["<leader>rn"] = "<cmd> set rnu! <CR>"
@@ -223,6 +223,7 @@ lvim.plugins = {
   { "catppuccin/nvim" },
   { "tpope/vim-surround" },
   { "sheerun/vim-polyglot" },
+  { "szw/vim-maximizer" },
   { "ggandor/leap.nvim", config = function()
     require('leap').set_default_keymaps()
   end },
