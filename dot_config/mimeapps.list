@@ -1,7 +1,7 @@
 [Default Applications]
 image/jpeg=viewnior.desktop;gpicview.desktop;
 image/png=viewnior.desktop;gpicview.desktop;
-text/plain=mousepad.desktop
+text/plain=vim.desktop
 x-scheme-handler/mailto=userapp-Evolution-2M0730.desktop
 message/rfc822=userapp-Thunderbird.desktop
 application/pdf=epdfview.desktop
@@ -22,18 +22,19 @@ x-scheme-handler/unknown=google-chrome.desktop
 x-scheme-handler/etcher=balena-etcher-electron.desktop
 x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
 x-scheme-handler/web+cardano=google-chrome.desktop
+x-scheme-handler/postman=Postman.desktop
+application/x-yaml=code.desktop
 
 [Added Associations]
 image/jpeg=viewnior.desktop;gpicview.desktop;
 image/png=viewnior.desktop;gpicview.desktop;
-text/plain=mousepad.desktop;
+text/plain=code.desktop;mousepad.desktop;
 message/rfc822=userapp-Thunderbird.desktop;
 application/pdf=epdfview.desktop;
 application/x-bittorrent=deluge.desktop;
 text/csv=freeoffice-planmaker.desktop;
 x-scheme-handler/mailto=exo-mail-reader.desktop;userapp-Evolution-M0CGT0.desktop;userapp-Evolution-UZKRW0.desktop;userapp-Evolution-2M0730.desktop;
 application/x-ole-storage=org.gnome.Evolution.desktop;
-inode/directory=exo-file-manager.desktop;
 application/octet-stream=mate-terminal.desktop;vlc.desktop;
 application/x-x509-ca-cert=typora.desktop;
 x-scheme-handler/http=exo-web-browser.desktop;
@@ -44,3 +45,6 @@ x-scheme-handler/spice=org.remmina.Remmina.desktop;
 x-scheme-handler/vnc=org.remmina.Remmina.desktop;
 x-scheme-handler/remmina=org.remmina.Remmina.desktop;
 application/x-remmina=org.remmina.Remmina.desktop;
+application/x-yaml=code.desktop;userapp-echo-LSTLZ1.desktop;lvim.desktop;
+
+[Removed Associations]

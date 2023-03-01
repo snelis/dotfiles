@@ -45,8 +45,8 @@ export FZF_DEFAULT_OPTS='--height 50% --border --preview "[[ $(file --mime {}) =
 export FZF_CTRL_R_OPTS="--no-preview"
 export FZF_CTRL_T_COMMAND='rg --files'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=1,bg=cyan,bold,underline"
-export EDITOR='lvim'
-export VISUAL='lvim'
+export EDITOR='vim'
+export VISUAL='vim'
 export VIRTUAL_ENV_DISABLE_PROMPT=
 export COMPOSE_DOCKER_CLI_BUILD=1 
 export DOCKER_BUILDKIT=1
@@ -59,7 +59,7 @@ export PATH=~/.npm-global/bin:$PATH
 alias vim="lvim"
 alias ssh='TERM=xterm ssh'
 alias startx='ssh-agent startx'
-alias rgf='rg --files | rg'
+alias ff='rg --files | rg'
 
 bumpminor () {
     git fetch
@@ -80,6 +80,10 @@ venv () {
     echo "export PYENV_VERSION=$(basename `pwd`)" >> .envrc
     awk -i inplace '!seen[$0]++' .envrc; 
     direnv allow
+}
+
+jwt-decode() {
+  jq -R 'split(".") | .[1] | @base64d | fromjson'
 }
 
 setopt INC_APPEND_HISTORY
