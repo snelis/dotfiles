@@ -31,7 +31,10 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<leader>rn"] = "<cmd> set rnu! <CR>"
 lvim.builtin.which_key.mappings["n"] = { "<cmd> set nu! <CR>", "toggle line number" }
 
-lvim.keys.normal_mode["<F6>"] = "<cmd>let &background=(&background=='light'?'dark':'light') <cr>"
+lvim.keys.normal_mode["<F5>"] = "<cmd>let &background='light'<cr>"
+lvim.keys.normal_mode["<F6>"] = "<cmd>let &background='dark'<cr>"
+lvim.keys.normal_mode["<F7>"] = "<cmd>source ~/.vimrc_background<cr>"
+-- lvim.keys.normal_mode["<F6>"] = "<cmd>let &background=(&background=='light'?'dark':'light') <cr>"
 
 lvim.keys.normal_mode["gv"] = ":vsplit | lua vim.lsp.buf.definition()<CR>"
 lvim.keys.normal_mode["gx"] = ":split | lua vim.lsp.buf.definition()<CR>"
