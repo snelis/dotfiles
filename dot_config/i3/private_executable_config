@@ -44,8 +44,9 @@ bindsym $mod+Ctrl+m exec pavucontrol
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec light -A 10% && notify-send -r 1 "brightness $(printf %.0f%% $(light -G))"
+bindsym XF86MonBrightnessDown exec light -U 10% && notify-send -r 1 "brightness $(printf %.0f%% $(light -G))"
+
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
