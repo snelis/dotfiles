@@ -7,7 +7,7 @@
 [user]
 	email = nielslensink@gmail.com
 	name = Niels Lensink
-	signingkey = 2AF612A984F6ACADA7E34209CF6B898D536E825F
+	signingkey = /home/snelis/.ssh/id_rsa
 [core]
 	excludesfile = /home/snelis/.gitignore
 [commit]
@@ -16,3 +16,5 @@
 	ff = only
 [push]
 	autoSetupRemote = true
+[gpg]
+	format = ssh
