@@ -84,3 +84,7 @@ vpn_status {
     on_click 3 = "exec nmcli connection down ois"
 }
 
+clock {
+   format = "{Europe/Amsterdam}"
+   format_time = "%Y-%m-%d %H:%M:%S"
+}
