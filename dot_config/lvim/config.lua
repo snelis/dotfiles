@@ -15,6 +15,10 @@ lvim.colorscheme = "catppuccin"
 -- ctrl-s to save
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
+-- Tabs
+lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
+
 -- Decleration in split
 lvim.keys.normal_mode["gv"] = ":vsplit | lua vim.lsp.buf.definition()<CR>"
 lvim.keys.normal_mode["gx"] = ":split | lua vim.lsp.buf.definition()<CR>"
@@ -30,6 +34,10 @@ lvim.keys.visual_mode["p"] = 'p:let @+=@0<CR>:let @"=@0<CR>'
 -- Floating terminal
 lvim.builtin.terminal.open_mapping = "<C-x>"
 
+-- dark & light
+lvim.keys.normal_mode["<F5>"] = "<cmd>let &background='light'<cr>"
+lvim.keys.normal_mode["<F6>"] = "<cmd>let &background='dark'<cr>"
+
 -- lualine
 local components = require("lvim.core.lualine.components")
 lvim.builtin.lualine.style = "lvim"
@@ -39,7 +47,7 @@ lvim.builtin.lualine.inactive_sections.lualine_b = { components.filename }
 
 -- NvimTree
 -- lvim.builtin.nvimtree.setup.actions.change_dir.enable = false
---
+lvim.builtin.nvimtree.setup.actions.open_file.window_picker.enable = false
 lvim.builtin.nvimtree.setup.view.mappings = {
   list = {
     { key = "s",     action = "vsplit" },
@@ -105,11 +113,13 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
--- Enable searching for strings in the project
-vim.list_extend(lvim.builtin.cmp.sources, {
-  { name = "rg" },
-})
+-- -- Enable searching for strings in the project
+-- vim.list_extend(lvim.builtin.cmp.sources, {
+--   { name = "rg" },
+-- })
 
+
+lvim.lsp.automatic_configuration.skipped_servers = {}
 -- Formatting
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
@@ -129,7 +139,7 @@ formatters.setup {
 -- Additional Plugins
 lvim.plugins = {
   { 'catppuccin/nvim' },
-  { 'lukas-reineke/cmp-rg' },
+  -- { 'lukas-reineke/cmp-rg' },
   { 'christoomey/vim-tmux-navigator' },
   { 'tpope/vim-surround' },
   { 'szw/vim-maximizer' },
