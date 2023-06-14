@@ -12,6 +12,9 @@ an executable
 lvim.format_on_save.enabled = true
 lvim.colorscheme = "catppuccin"
 
+-- ctrl-s to save
+lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+
 -- Decleration in split
 lvim.keys.normal_mode["gv"] = ":vsplit | lua vim.lsp.buf.definition()<CR>"
 lvim.keys.normal_mode["gx"] = ":split | lua vim.lsp.buf.definition()<CR>"
