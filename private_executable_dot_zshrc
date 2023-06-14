@@ -106,6 +106,8 @@ source <(kubectl completion zsh)
 
 bindkey -v
 
+bindkey "^X^E" edit-command-line
+
 # direnv
 # command -v direnv 1>/dev/null && eval "$(direnv hook zsh)"
 autoload -U +X bashcompinit && bashcompinit
@@ -117,6 +119,8 @@ if [ "$TERM" = "linux" ]; then
     done
     clear
 fi
+
+xset r rate 200 30
 
 # [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 [[ ! -z "$DISPLAY" && -z "$TMUX" ]] && { exec tmux new-session && exit;}
