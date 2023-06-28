@@ -119,7 +119,61 @@ lvim.builtin.which_key.mappings["t"] = {
 -- })
 
 
-lvim.lsp.automatic_configuration.skipped_servers = {}
+lvim.lsp.automatic_configuration.skipped_servers = {
+  "angularls",
+  "ansiblels",
+  "antlersls",
+  "azure_pipelines_ls",
+  "ccls",
+  "custom_elements_ls",
+  "omnisharp",
+  "cssmodules_ls",
+  "denols",
+  "docker_compose_language_service",
+  "ember",
+  "emmet_ls",
+  "eslint",
+  "eslintls",
+  "glint",
+  "golangci_lint_ls",
+  "gradle_ls",
+  "graphql",
+  "java_language_server",
+  "jedi_language_server",
+  "ltex",
+  "neocmake",
+  "ocamlls",
+  "phpactor",
+  "psalm",
+  "pylsp",
+  "pylyzer",
+  "pyre",
+  "quick_lint_js",
+  "reason_ls",
+  "rnix",
+  "rome",
+  "ruby_ls",
+  "ruff_lsp",
+  "scry",
+  "solang",
+  "solc",
+  "solidity_ls",
+  "solidity_ls_nomicfoundation",
+  "sorbet",
+  "sourcekit",
+  "sourcery",
+  "spectral",
+  "sqlls",
+  "sqls",
+  "standardrb",
+  "stylelint_lsp",
+  "svlangserver",
+  "tflint",
+  "unocss",
+  "verible",
+  "vtsls",
+  "vuels",
+}
 -- Formatting
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
@@ -155,3 +209,16 @@ lvim.plugins = {
     end
   },
 }
+
+-- Enable copilot
+table.insert(lvim.plugins, {
+  "zbirenbaum/copilot-cmp",
+  event = "InsertEnter",
+  dependencies = { "zbirenbaum/copilot.lua" },
+  config = function()
+    vim.defer_fn(function()
+      require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+      require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+    end, 100)
+  end,
+})
