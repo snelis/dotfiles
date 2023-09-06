@@ -14,7 +14,7 @@ case $current_window_style in
         tmux set pane-active-border-style 'fg=#1C71D8,bg=#EFF1F5'
         tmux set pane-border-style 'fg=#999999,bg=#EFF1F5' 
         echo "let &background='light'" > ~/.vimrc_background
-        tmux send-keys F7
+        tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | grep vim | cut -d ' ' -f 1 | xargs -I PANE tmux send-keys -t PANE ESCAPE ":set background=light" ENTER
         ;;
     *)
         # Change back to the default window style.
@@ -22,6 +22,6 @@ case $current_window_style in
         tmux set pane-active-border-style 'fg=#1C71D8,bg=#1E1E2E'
         tmux set pane-border-style 'fg=#ffffff,bg=#1E1E2E' 
         echo "let &background='dark'" > ~/.vimrc_background
-        tmux send-keys F7
+        tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | grep vim | cut -d ' ' -f 1 | xargs -I PANE tmux send-keys -t PANE ESCAPE ":set background=dark" ENTER
         ;;
 esac
