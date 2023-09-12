@@ -1,22 +1,7 @@
---[[
-lvim is the global options object
-
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 -- general
 lvim.format_on_save.enabled = true
 lvim.colorscheme = "catppuccin"
 lvim.colorscheme_toggle = { "light", "dark" }
-
--- lvim.keys.normal_mode["<F5>"] = "<cmd>let &background='light'<cr>"
--- lvim.keys.normal_mode["<F6>"] = "<cmd>let &background='dark'<cr>"
-lvim.keys.normal_mode["<F7>"] = "<cmd>source ~/.vimrc_background<cr>"
--- lvim.keys.normal_mode["<F6>"] = "<cmd>let &background=(&background=='light'?'dark':'light') <cr>"
 
 -- ctrl-s to save
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -52,7 +37,6 @@ lvim.builtin.lualine.sections.lualine_b = { components.filename }
 lvim.builtin.lualine.inactive_sections.lualine_b = { components.filename }
 
 -- NvimTree
--- lvim.builtin.nvimtree.setup.actions.change_dir.enable = false
 lvim.builtin.nvimtree.setup.actions.open_file.window_picker.enable = false
 lvim.builtin.nvimtree.setup.view.mappings = {
   list = {
@@ -119,67 +103,7 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
--- -- Enable searching for strings in the project
--- vim.list_extend(lvim.builtin.cmp.sources, {
---   { name = "rg" },
--- })
 
-
-lvim.lsp.automatic_configuration.skipped_servers = {
-  "angularls",
-  "ansiblels",
-  "antlersls",
-  "azure_pipelines_ls",
-  "ccls",
-  "custom_elements_ls",
-  "omnisharp",
-  "cssmodules_ls",
-  "denols",
-  "docker_compose_language_service",
-  "ember",
-  "emmet_ls",
-  "eslint",
-  "eslintls",
-  "glint",
-  "golangci_lint_ls",
-  "gradle_ls",
-  "graphql",
-  "java_language_server",
-  "jedi_language_server",
-  "ltex",
-  "neocmake",
-  "ocamlls",
-  "phpactor",
-  "psalm",
-  "pylsp",
-  "pylyzer",
-  "pyre",
-  "quick_lint_js",
-  "reason_ls",
-  "rnix",
-  "rome",
-  "ruby_ls",
-  "ruff_lsp",
-  "scry",
-  "solang",
-  "solc",
-  "solidity_ls",
-  "solidity_ls_nomicfoundation",
-  "sorbet",
-  "sourcekit",
-  "sourcery",
-  "spectral",
-  "sqlls",
-  "sqls",
-  "standardrb",
-  "stylelint_lsp",
-  "svlangserver",
-  "tflint",
-  "unocss",
-  "verible",
-  "vtsls",
-  "vuels",
-}
 -- Formatting
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
@@ -199,7 +123,6 @@ formatters.setup {
 -- Additional Plugins
 lvim.plugins = {
   { 'catppuccin/nvim' },
-  -- { 'lukas-reineke/cmp-rg' },
   { 'christoomey/vim-tmux-navigator' },
   { 'tpope/vim-surround' },
   { 'szw/vim-maximizer' },
