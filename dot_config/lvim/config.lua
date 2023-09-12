@@ -11,6 +11,12 @@ an executable
 -- general
 lvim.format_on_save.enabled = true
 lvim.colorscheme = "catppuccin"
+lvim.colorscheme_toggle = { "light", "dark" }
+
+-- lvim.keys.normal_mode["<F5>"] = "<cmd>let &background='light'<cr>"
+-- lvim.keys.normal_mode["<F6>"] = "<cmd>let &background='dark'<cr>"
+lvim.keys.normal_mode["<F7>"] = "<cmd>source ~/.vimrc_background<cr>"
+-- lvim.keys.normal_mode["<F6>"] = "<cmd>let &background=(&background=='light'?'dark':'light') <cr>"
 
 -- ctrl-s to save
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -210,15 +216,15 @@ lvim.plugins = {
   },
 }
 
--- Enable copilot
-table.insert(lvim.plugins, {
-  "zbirenbaum/copilot-cmp",
-  event = "InsertEnter",
-  dependencies = { "zbirenbaum/copilot.lua" },
-  config = function()
-    vim.defer_fn(function()
-      require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
-      require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
-    end, 100)
-  end,
-})
+-- -- Enable copilot
+-- table.insert(lvim.plugins, {
+--   "zbirenbaum/copilot-cmp",
+--   event = "InsertEnter",
+--   dependencies = { "zbirenbaum/copilot.lua" },
+--   config = function()
+--     vim.defer_fn(function()
+--       require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+--       require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+--     end, 100)
+--   end,
+-- })
