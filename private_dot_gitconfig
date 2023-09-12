@@ -1,0 +1,18 @@
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /opt/1Password/op-ssh-sign
+[commit]
+	gpgsign = true
+[user]
+	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxynRGwQlocDtxQ3A+Gk7Zu48z344mduEDQVZO4rZkyjBayQaH63ZShaidZICeNRc2Biy7hONOOyJ5sYmm3pErL3S7pQXuA64ygCkFgksMX17X5Htbrknl5yJ949CI96KoOd7UaxnERmPAdbIexyp4v5b5H3fx8WvO/6eAbSuQPGpPDZ3zRheqhvBXSvEm65veU8fHnJ/3H6ajTSkXBmXmTyURASGhA/uJFIH44QeK5Sks8r234uu2B01ZVFIG/AfB/k1Xlado/Fko7zEamvlZObdgy5Wit2NKOHzdBoj7CvauiNwDEThtvj4+eNlZlDNQmclxBw4ocM02qPiZRieD
+	email = nielslensink@gmail.com
+	name = Niels
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = /home/snelis/.gitignore
+[alias]
+	st = status
