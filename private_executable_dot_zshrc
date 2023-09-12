@@ -7,7 +7,7 @@ antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
 git
 pip
-docker
+# docker
 command-not-found
 
 pip
@@ -17,7 +17,6 @@ virtualenv
 tmux
 extract
 wd
-docker
 
 # martinlindhe/base16-iterm2
 # chriskempson/base16-shell
@@ -45,8 +44,8 @@ export FZF_DEFAULT_OPTS='--height 50% --border --preview "[[ $(file --mime {}) =
 export FZF_CTRL_R_OPTS="--no-preview"
 export FZF_CTRL_T_COMMAND='rg --files'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=1,bg=cyan,bold,underline"
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='lvim'
+export VISUAL='lvim'
 export VIRTUAL_ENV_DISABLE_PROMPT=
 export COMPOSE_DOCKER_CLI_BUILD=1 
 export DOCKER_BUILDKIT=1
@@ -54,7 +53,9 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888"
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export PYTHONBREAKPOINT="ipdb.set_trace"
 
+export PATH=~/.local/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
 
 alias vim="lvim"
 alias ssh='TERM=xterm ssh'
@@ -76,7 +77,7 @@ pyclean () {
 }
 
 venv () {
-    pyenv virtualenv 3.10.6 $(basename `pwd`)
+    pyenv virtualenv 3.11.4 $(basename `pwd`)
     echo "export PYENV_VERSION=$(basename `pwd`)" >> .envrc
     awk -i inplace '!seen[$0]++' .envrc; 
     direnv allow
@@ -104,7 +105,8 @@ autoload -U +X bashcompinit && bashcompinit
 
 source <(kubectl completion zsh)
 
-bindkey -v
+# bindkey -v
+bindkey -e
 
 bindkey "^X^E" edit-command-line
 
