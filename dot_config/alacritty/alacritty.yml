@@ -2,6 +2,9 @@ env:
   WINIT_X11_SCALE_FACTOR: "1"
 
 font:
+  normal:
+    family: Hack Nerd Font Mono
+    style: Regular
   size: 11
   
 
