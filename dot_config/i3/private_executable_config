@@ -28,7 +28,7 @@ font xft:Hack Nerd Font Mono Regular 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec mate-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -370,15 +370,15 @@ bar {
 
     colors {
         background #000000
-        statusline $term_foreground
-        separator  $term_color8
+        # statusline $term_foreground
+        # separator  $term_color8
 
 #                      border  backgr. text
-        focused_workspace  #F9FAF9 $term_color4 #000000
-        active_workspace   #595B5B #888888 #000000
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 $term_color1 #FFFFFF
+        # focused_workspace  #F9FAF9 $term_color4 #000000
+        # active_workspace   #595B5B #888888 #000000
+        # inactive_workspace #595B5B #222D31 #EEE8D5
+        # binding_mode       #16a085 #2C2C2C #F9FAF9
+        # urgent_workspace   #16a085 $term_color1 #FFFFFF
     }
 }
 
