@@ -52,6 +52,7 @@ export DOCKER_BUILDKIT=1
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888"
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export PYTHONBREAKPOINT="ipdb.set_trace"
+export MANPAGER='lvim +Man!'
 
 export PATH=~/.local/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
@@ -61,6 +62,7 @@ alias vim="lvim"
 alias ssh='TERM=xterm ssh'
 alias startx='ssh-agent startx'
 alias ff='rg --files | rg'
+alias cat='bat -pp'
 
 bumpminor () {
     git fetch
