@@ -3,8 +3,8 @@
 # Toggle the current window (all panes) between light and dark themes.
 set -e
 
-LIGHTTHEME=Atelierforest.light.yml
-DARKTHEME=Atelierforest.dark.yml
+LIGHTTHEME=Alabaster.yml
+DARKTHEME=vscode.dark.yml
 ALACRITTYCONF=~/.config/alacritty/alacritty.yml
 
 # Check if the current theme is dark

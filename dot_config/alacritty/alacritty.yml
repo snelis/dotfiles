@@ -2,7 +2,7 @@ env:
   WINIT_X11_SCALE_FACTOR: "1"
 
 import:
-  - /usr/lib/node_modules/alacritty-themes/themes/Atelierforest.dark.yml
+  - /usr/lib/node_modules/alacritty-themes/themes/vscode.dark.yml
 
 font:
   normal:
@@ -27,31 +27,3 @@ hints:
       mouse:
         enabled: true
         mods: none
-colors:
-  name: Atelierforest (dark)
-  author: Chris Kempson
-  primary:
-    background: "#1b1918"
-    foreground: "#a8a19f"
-  cursor:
-    text: "#1b1918"
-    cursor: "#a8a19f"
-  normal:
-    black: "#1b1918"
-    red: "#f22c40"
-    green: "#5ab738"
-    yellow: "#d5911a"
-    blue: "#407ee7"
-    magenta: "#6666ea"
-    cyan: "#00ad9c"
-    white: "#a8a19f"
-  bright:
-    black: "#766e6b"
-    red: "#f22c40"
-    green: "#5ab738"
-    yellow: "#d5911a"
-    blue: "#407ee7"
-    magenta: "#6666ea"
-    cyan: "#00ad9c"
-    white: "#f1efee"
-theme: Atelierforest.dark
