@@ -1,12 +1,6 @@
 env:
   WINIT_X11_SCALE_FACTOR: "1"
 
-import:
-  - /usr/lib/node_modules/alacritty-themes/themes/github_dark_default.yml
-  # - /usr/lib/node_modules/alacritty-themes/themes/Tender.yml
-  # - /usr/lib/node_modules/alacritty-themes/themes/iTerm-Default.yml
-  # - /usr/lib/node_modules/alacritty-themes/themes/Belge.yml
-
 font:
   normal:
     family: Hack Nerd Font Mono
@@ -30,3 +24,31 @@ hints:
       mouse:
         enabled: true
         mods: none
+colors:
+  # Default colors
+  primary:
+    background: '#101421'
+    foreground: '#fffbf6'
+
+  # Normal colors
+  normal:
+    black: '#2e2e2e'
+    red: '#eb4129'
+    green: '#abe047'
+    yellow: '#f6c744'
+    blue: '#47a0f3'
+    magenta: '#7b5cb0'
+    cyan: '#64dbed'
+    white: '#e5e9f0'
+
+  # Bright colors
+  bright:
+    black: '#565656'
+    red: '#ec5357'
+    green: '#c0e17d'
+    yellow: '#f9da6a'
+    blue: '#49a4f8'
+    magenta: '#a47de9'
+    cyan: '#99faf2'
+    white: '#ffffff'
+theme: iTerm-Default
