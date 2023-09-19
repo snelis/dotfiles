@@ -2,7 +2,10 @@ env:
   WINIT_X11_SCALE_FACTOR: "1"
 
 import:
-  - /usr/lib/node_modules/alacritty-themes/themes/vscode.dark.yml
+  - /usr/lib/node_modules/alacritty-themes/themes/github_dark_default.yml
+  # - /usr/lib/node_modules/alacritty-themes/themes/Tender.yml
+  # - /usr/lib/node_modules/alacritty-themes/themes/iTerm-Default.yml
+  # - /usr/lib/node_modules/alacritty-themes/themes/Belge.yml
 
 font:
   normal:

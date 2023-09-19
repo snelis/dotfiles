@@ -4,7 +4,9 @@
 set -e
 
 LIGHTTHEME=Alabaster.yml
-DARKTHEME=vscode.dark.yml
+DARKTHEME=Tender.yml
+DARKTHEME=github_dark_default.yml
+DARKTHEME=iTerm-Default.yml
 ALACRITTYCONF=~/.config/alacritty/alacritty.yml
 
 # Check if the current theme is dark
