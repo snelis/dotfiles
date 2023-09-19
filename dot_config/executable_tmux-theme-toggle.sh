@@ -3,8 +3,8 @@
 # Toggle the current window (all panes) between light and dark themes.
 set -e
 
-LIGHTTHEME=Mocha.light.yml
-DARKTHEME=Mocha.yml
+LIGHTTHEME=Atelierforest.light.yml
+DARKTHEME=Atelierforest.dark.yml
 ALACRITTYCONF=~/.config/alacritty/alacritty.yml
 
 # Check if the current theme is dark

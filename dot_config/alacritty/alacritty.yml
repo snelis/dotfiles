@@ -2,18 +2,16 @@ env:
   WINIT_X11_SCALE_FACTOR: "1"
 
 import:
-  - /usr/lib/node_modules/alacritty-themes/themes/Mocha.yml
+  - /usr/lib/node_modules/alacritty-themes/themes/Atelierforest.dark.yml
 
 font:
   normal:
     family: Hack Nerd Font Mono
     style: Regular
   size: 11
-  
 
 selection:
   save_to_clipboard: true
-
 
 scrolling:
   # Specifying '0' will disable scrolling.
@@ -21,11 +19,39 @@ scrolling:
 
 hints:
   enabled:
-   - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
-             [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
-     hyperlinks: true
-     command: xdg-open
-     post_processing: true
-     mouse:
-       enabled: true
-       mods: none
+    - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|g\
+        it:|ssh:|ftp:)[^\0-\x1f-<>\"\\s{-}\\^⟨⟩`]+"
+      hyperlinks: true
+      command: xdg-open
+      post_processing: true
+      mouse:
+        enabled: true
+        mods: none
+colors:
+  name: Atelierforest (dark)
+  author: Chris Kempson
+  primary:
+    background: "#1b1918"
+    foreground: "#a8a19f"
+  cursor:
+    text: "#1b1918"
+    cursor: "#a8a19f"
+  normal:
+    black: "#1b1918"
+    red: "#f22c40"
+    green: "#5ab738"
+    yellow: "#d5911a"
+    blue: "#407ee7"
+    magenta: "#6666ea"
+    cyan: "#00ad9c"
+    white: "#a8a19f"
+  bright:
+    black: "#766e6b"
+    red: "#f22c40"
+    green: "#5ab738"
+    yellow: "#d5911a"
+    blue: "#407ee7"
+    magenta: "#6666ea"
+    cyan: "#00ad9c"
+    white: "#f1efee"
+theme: Atelierforest.dark
