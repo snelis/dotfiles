@@ -39,13 +39,17 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-bindsym $mod+Ctrl+m exec pavucontrol
+bindsym $mod+Shift+m exec pavucontrol
 
 ################################################################################################
 
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+# Backlight setting using dunst osc
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
+
+# use meta keys showing osc using dunst
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause

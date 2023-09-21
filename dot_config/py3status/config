@@ -17,6 +17,7 @@ order += "spotify"
 order += "volume_status"
 # order += "net_rate"
 order += "sysdata"
+order += "diskdata"
 # order += "nvidia_smi"
 # order += "nvidia_temp"
 # order += "wifi _first_"
@@ -25,6 +26,7 @@ order += "wifi"
 order += "vpn_status"
 order += "backlight"
 order += "battery_level"
+order += "do_not_disturb"
 order += "clock"
 
 spotify {
@@ -50,6 +52,10 @@ arch_updates {
 net_rate {
     format = "{up} {down}"
 	format_up = d
+}
+
+diskdata {
+  cache_timeout = 5
 }
 
 ethernet _first_ {
