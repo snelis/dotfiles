@@ -37,7 +37,9 @@ lvim.builtin.lualine.sections.lualine_b = { components.filename }
 lvim.builtin.lualine.inactive_sections.lualine_b = { components.filename }
 
 -- NvimTree
+lvim.builtin.project.patterns = { ".git" }
 lvim.builtin.nvimtree.setup.actions.open_file.window_picker.enable = false
+lvim.builtin.nvimtree.setup.view.adaptive_size = true
 lvim.builtin.nvimtree.setup.view.mappings = {
   list = {
     { key = "s",     action = "vsplit" },
