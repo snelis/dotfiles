@@ -57,6 +57,7 @@ export MANPAGER='lvim +Man!'
 export PATH=~/.local/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
 export PATH=~/.cargo/bin:$PATH
+export PATH=~/.azure/bin:$PATH
 
 alias vim="lvim"
 alias ssh='TERM=xterm ssh'
