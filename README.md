@@ -88,7 +88,10 @@ yay --noconfirm -Sy \
     javac \
     julia \
     powerline \
-    bob-bin
+    bob-bin \
+    filelight \
+    dolphin \
+    breeze-icons
 ```
 
 ```
